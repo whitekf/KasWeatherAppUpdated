@@ -1,0 +1,513 @@
+body {
+  background-color: #d5e0ff;
+  font-family: Helvetica, "Consolas", "Courier New", monospace;
+}
+
+.centerBox {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  background-color: #add1fe;
+  border-radius: 4px;
+  display: block;
+  margin-left: 3%;
+  margin-right: 3%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+
+li {
+  list-style: none;
+  text-transform: capitalize;
+  font-family: Helvetica;
+  color: navy;
+}
+
+.mainHeading {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  overflow: hidden;
+  text-align: left;
+  font-size: 54px;
+  margin-left: 15px;
+  padding-left: 5%;
+  padding-top: 1%;
+  color: navy;
+  font-weight: bold;
+}
+
+.mainHeading:hover {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  overflow: hidden;
+  text-align: left;
+  font-size: 56px;
+  margin-left: 15px;
+  padding-left: 5%;
+  padding-top: 1%;
+  color: rgb(30, 20, 77);
+  font-weight: bold;
+  transition: ease-in-out;
+}
+
+button {
+  border: 2px solid rgb(117, 119, 213);
+  color: navy;
+}
+
+button:hover {
+  background-color: #e0b06b;
+  cursor: pointer;
+}
+
+.rainbowContainer {
+  background: #ffffff;
+  width: 100%;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.top-round-rainbow {
+  width: 100%;
+  height: 50%;
+
+  background-image: repeating-linear-gradient(
+    to right,
+    #7fdae1 0px,
+    #7fade1 50px,
+    #cad5fd 50px,
+    #cecafd 100px,
+    #8571fa 100px,
+    #4c53d4 150px,
+    #648df4 150px,
+    #a2e7fc 200px,
+    #9690e7 200px,
+    #9273f6 250px,
+    #5343ff 250px,
+    #7f63ff 300px,
+    #6599e2 300px,
+    #6599e2 350px,
+    #61c2e4 350px,
+    #61c2e4 400px
+  );
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+}
+
+h3.dateAndTime {
+  display: flex;
+  font-family: "Consolas", "Courier New", monospace, Helvetica;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  text-align: right;
+  overflow: hidden;
+  color: navy;
+  margin-top: 8%;
+  padding-top: 3%;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+h3.dateAndTime:hover {
+  display: flex;
+  font-family: "Consolas", "Courier New", monospace, Helvetica;
+  align-items: center;
+  flex-wrap: wrap;
+  position: sticky;
+  text-align: right;
+  overflow: hidden;
+  text-shadow: 1px 1px 1px #d6cdec;
+  margin-top: 8%;
+  margin-right: 3%;
+  padding-top: 2%;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+li.fullDate {
+  text-align: right;
+}
+li.fullDay {
+  text-align: right;
+}
+li.fullTime {
+  text-align: right;
+}
+
+#search-text-input {
+  color: rgb(10, 12, 126);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  position: relative;
+  outline: none;
+  background-color: #dfeaff;
+  border: 2px solid rgb(117, 119, 213);
+  padding: 8px 8px 8px 8px;
+  border-radius: 40px;
+  max-width: 100%;
+  margin-left: 8%;
+}
+
+#search-text-input:hover {
+  color: rgb(33, 10, 126);
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  position: relative;
+  outline: none;
+  background-color: #ecf0fe;
+  border: 2px solid rgb(117, 119, 213);
+  padding: 8px 8px 8px 8px;
+  border-radius: 40px;
+  max-width: 100%;
+  margin-left: 8%;
+  cursor: pointer;
+}
+
+.currentButton {
+  display: block;
+  outline: none;
+  background-color: #ffffff;
+  color: navy;
+  text-align: center;
+  position: static;
+  padding: 5px 5px 5px 5px;
+  border-radius: 20px;
+  border: 2px solid rgb(117, 119, 213);
+  box-shadow: 1px 1px 1px #5a77d5;
+  margin-left: 5px;
+  max-width: 100%;
+  font-size: 15px;
+}
+
+.currentButton:hover {
+  display: block;
+  outline: none;
+  text-align: center;
+  color: #fff;
+  position: static;
+  padding: 5px 5px 5px 5px;
+  border-radius: 20px;
+  background-color: #f4af48;
+  border: 2px solid rgb(224, 126, 22);
+  max-width: 100%;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+input.inputButton {
+  display: block;
+  background-color: #ffffff;
+  color: navy;
+  text-align: center;
+  position: static;
+  border-radius: 40px;
+  margin-top: 5px;
+  border: 2px solid rgb(117, 119, 213);
+  box-shadow: 1px 1px 1px #5a77d5;
+  max-width: 100%;
+  margin-left: 45%;
+}
+
+input.inputButton:hover {
+  display: block;
+  text-align: center;
+  position: static;
+  border-radius: 40px;
+  background-color: #fefa8d;
+  border: 2px solid rgb(190, 224, 22);
+  max-width: 100%;
+  margin-top: 5px;
+  margin-left: 45%;
+  cursor: pointer;
+}
+
+.today {
+  color: navy;
+  text-align: left;
+  font-size: 34px;
+  margin-left: 30%;
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+button.CorF {
+  text-align: center;
+  background-color: #717fcd;
+  padding: 5px 10px 5px 10px;
+  border-radius: 25px;
+  font-size: 15px;
+  margin-right: 10px;
+  color: navy;
+  display: block;
+  outline: none;
+  background-color: #ffffff;
+  text-align: center;
+  position: static;
+  border: 2px solid rgb(117, 119, 213);
+  box-shadow: 1px 1px 1px 1px #5a77d5;
+  max-width: 100%;
+}
+
+button.CorF:hover {
+  text-align: center;
+  background-color: #90d214;
+  color: #fff;
+  border: 2px solid rgb(233, 255, 38);
+  border-radius: 25px;
+  font-size: 15px;
+  margin-right: 10px;
+  cursor: pointer;
+  border: 2px solid rgb(217, 47, 255);
+  padding: 5px 10px 5px 10px;
+  display: block;
+  outline: none;
+  background-color: #ff6bf3;
+  text-align: center;
+  position: static;
+  max-width: 100%;
+}
+
+.currentTemp {
+  text-transform: capitalize;
+  font-size: 28px;
+  text-align: left;
+  margin-bottom: 15px;
+  padding-bottom: 20px;
+  padding-left: 10px;
+  color: navy;
+}
+
+li.feelsLike {
+  font-style: italic;
+}
+
+.CorFLetter {
+  text-align: left;
+  color: navy;
+  font-size: 24px;
+  padding-bottom: 20px;
+}
+
+.currentDescription {
+  text-align: right;
+  align-items: center;
+  padding-bottom: 10px;
+  font-size: 18px;
+  color: navy;
+  max-width: 100%;
+}
+
+span.currentHumidity {
+  text-align: right;
+  align-items: center;
+  font-size: 18px;
+  padding-bottom: 10px;
+  color: navy;
+  max-width: 100%;
+}
+
+span.currentWind {
+  text-align: right;
+  align-items: center;
+  padding-bottom: 10px;
+  font-size: 18px;
+  color: navy;
+  max-width: 100%;
+}
+
+h3.current {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  position: relative;
+  color: navy;
+  background-color: #d2e3ff;
+  border: 2px solid rgb(117, 119, 213);
+  border-radius: 4px;
+  padding: 10px 10px 10px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+h3.current:hover {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: center;
+  color: navy;
+  position: relative;
+  background-color: #d2e3ff;
+  border-radius: 20px;
+  padding: 10px 10px 10px 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+img {
+  text-align: center;
+  align-items: center;
+}
+
+#currentIcon {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  line-height: 50px;
+  flex-wrap: wrap;
+  font-size: 38px;
+  border-radius: 120px;
+  padding: 20px 20px 20px 20px;
+  margin-right: 15%;
+}
+
+.weatherIcon {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  text-align: right;
+  font-size: 32px;
+  padding: 20px 20px 20px 20px;
+  font-weight: bold;
+}
+
+.cityBox {
+  align-items: center;
+  text-align: center;
+}
+
+h4.city {
+  display: flex;
+  text-transform: capitalize;
+  align-items: center;
+  text-align: center;
+  background-color: #d2e3ff;
+  border: 2px solid rgb(117, 119, 213);
+  border-radius: 4px;
+  flex-wrap: wrap;
+  position: static;
+  overflow: hidden;
+  font-size: 26px;
+  color: navy;
+  padding: 18px 18px 18px 18px;
+  margin-right: 5%;
+  font-weight: bold;
+}
+
+h4.city:hover {
+  display: flex;
+  text-transform: capitalize;
+  text-align: center;
+  align-items: center;
+  background-color: #d2e3ff;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  position: static;
+  overflow: hidden;
+  font-size: 26px;
+  color: navy;
+  padding: 18px 18px 18px 18px;
+  margin-right: 5%;
+  font-weight: bold;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
+
+#forecast {
+  margin-left: 1%;
+  margin-right: 1%;
+}
+
+.weatherRow {
+  background-color: #bfd6ff;
+  border-radius: 4px;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  margin-left: 4%;
+  margin-right: 4%;
+}
+
+.weatherRow:hover {
+  border-radius: 150px;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px 10px 10px;
+  margin-left: 4%;
+  margin-right: 4%;
+  background-color: #bfd6ff;
+  border-radius: 20px;
+}
+
+.weather-forecast {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 11px;
+  margin-right: 11px;
+  text-align: center;
+  align-items: center;
+  color: rgb(37, 6, 59);
+  border-radius: 4px;
+  padding: 10px 10px 10px 10px;
+  background-color: #d2e3ff;
+  border: 2px solid rgb(117, 119, 213);
+}
+
+.weather-forecast:hover {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  margin-left: 11px;
+  margin-right: 11px;
+  text-align: center;
+  align-items: center;
+  color: navy;
+  background-color: #d2e3ff;
+  border-radius: 20px;
+  padding: 10px 10px 10px 10px;
+  border: 2px solid rgb(97, 90, 194);
+  font-weight: bold;
+}
+
+.weather-forecast-day {
+  font-size: 20px;
+  opacity: 0.7;
+}
+
+.weather-forecast-temp-max {
+  opacity: 0.9;
+}
+
+.weather-forecast-temp-min {
+  opacity: 0.6;
+}
+
+.weather-forecast-temperatures {
+  font-size: 20px;
+}
+
+.foot {
+  display: block;
+  color: navy;
+  text-align: center;
+  align-items: center;
+  margin-left: 8%;
+  margin-right: 8%;
+  padding: 30px 20px 20px 20px;
+}
