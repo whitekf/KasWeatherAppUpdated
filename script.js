@@ -143,7 +143,7 @@ function displayForecast(response) {
   console.log(forecast);
 
   let tempToCorF = document.querySelector("button.CorF");
-  tempToCorF.addEventListener("click", calcTemp);
+  tempToCorF.addEventListener("click", convertUnits);
 
   let forecastElement = document.querySelector("#forecast");
 
@@ -226,7 +226,6 @@ function displaySearchedCity(event) {
     let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
     // let city = document.querySelector("h4.city").value;
     let city = searchIn.value;
-    units = "imperial";
     let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
     axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
     // axios.get(`${apiUrl}&appid=${apiKey}`).then(displayOthWeatherCondition);
@@ -242,7 +241,6 @@ function searchCurrentCity(position) {
   searchIn.value.innerHTML = "Search for a city";
 
   let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
-  let units = "imperial";
   // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
@@ -253,64 +251,93 @@ function searchCurrentCity(position) {
 let formInput = document.querySelector("#search-form");
 formInput.addEventListener("submit", displaySearchedCity);
 
-//Function when user clicks on the "C or F" button - updates temperature metric/imperial
-function calcTemp(event) {
-  let highLowTemp = document.querySelector("span.highLow");
-  let curTemp = document.querySelector("span.currentTemp");
-  let curHighTemp = document.querySelector("span.highLowHigh");
-  let curLowTemp = document.querySelector("span.highLowLow");
-
+// function to convert units
+function convertUnits(event) {
   let CorFBut = document.querySelector(".CorF");
   let CorFLet = document.querySelector("span.CorFLetter");
 
-  // if (units === "imperial") {
-  //   units = "metric";
-  // } else {
-  //   units = "imperial";
-  // }
-  //cTempMaxCur
-  //cTempMinCur
-
-  if (defaultTemp === "F") {
-    celsiusTemp = (fahrenTemp - 32) / 1.8;
-    curTemp.innerHTML = Math.round(celsiusTemp);
-    /////
-    // curLowTemp.innerHTML = Math.round(cTempMinCur);
-    // curHighTemp.innerHTML = Math.round(cTempMaxCur);
+  if (units === "imperial") {
     units = "metric";
-    CorFLet.innerHTML = "°C";
+    CorFLet = "C";
     CorFBut.innerHTML = " [°C] or °F ";
     defaultTemp = "C";
   } else {
-    curTemp.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
-    // /////
-    // curLowTemp.innerHTML = Math.round(fTempMinCur);
-    // curHighTemp.innerHTML = Math.round(fTempMaxCur);
     units = "imperial";
-    CorFLet.innerHTML = "°F";
+    CorFLet = "F";
     CorFBut.innerHTML = " °C or [°F] ";
     defaultTemp = "F";
   }
 
-  if (units === "imperial") {
-    let CorFLet = document.querySelector("span.CorFLetter");
-    CorFLet = "F";
-  } else {
-    let CorFLet = document.querySelector("span.CorFLetter");
-    CorFLet = "C";
-  }
+  let cityEntered = document.querySelector("h4.city");
+  cityEntered.innerHTML = city;
+  axios
+    .get(`${apiUrl}&appid=${apiKey}&units=${units}`)
+    .then(displayCurWeatherCondition);
 
-  let tempToCorF = document.querySelector("button.CorF");
-  tempToCorF.addEventListener("click", calcTemp);
+  let curLocButton = document.querySelector("button.currentButton");
+  curLocButton.addEventListener("click", getCurrentPosition);
 }
+
+// //Function when user clicks on the "C or F" button - updates temperature metric/imperial
+// function calcTemp(event) {
+//   let highLowTemp = document.querySelector("span.highLow");
+//   let curTemp = document.querySelector("span.currentTemp");
+//   let curHighTemp = document.querySelector("span.highLowHigh");
+//   let curLowTemp = document.querySelector("span.highLowLow");
+
+//   let CorFBut = document.querySelector(".CorF");
+//   let CorFLet = document.querySelector("span.CorFLetter");
+
+//   // if (units === "imperial") {
+//   //   units = "metric";
+//   // } else {
+//   //   units = "imperial";
+//   // }
+//   //cTempMaxCur
+//   //cTempMinCur
+
+//   if (defaultTemp === "F") {
+//     celsiusTemp = (fahrenTemp - 32) / 1.8;
+//     curTemp.innerHTML = Math.round(celsiusTemp);
+//     /////
+//     // curLowTemp.innerHTML = Math.round(cTempMinCur);
+//     // curHighTemp.innerHTML = Math.round(cTempMaxCur);
+//     units = "metric";
+//     CorFLet.innerHTML = "°C";
+//     CorFBut.innerHTML = " [°C] or °F ";
+//     defaultTemp = "C";
+//   } else {
+//     curTemp.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
+//     // /////
+//     // curLowTemp.innerHTML = Math.round(fTempMinCur);
+//     // curHighTemp.innerHTML = Math.round(fTempMaxCur);
+//     units = "imperial";
+//     CorFLet.innerHTML = "°F";
+//     CorFBut.innerHTML = " °C or [°F] ";
+//     defaultTemp = "F";
+//   }
+
+//   if (units === "imperial") {
+//     let CorFLet = document.querySelector("span.CorFLetter");
+//     CorFLet = "F";
+//   } else {
+//     let CorFLet = document.querySelector("span.CorFLetter");
+//     CorFLet = "C";
+//   }
+
+//   let tempToCorF = document.querySelector("button.CorF");
+//   tempToCorF.addEventListener("click", calcTemp);
+// }
 
 let cityEntered = document.querySelector("h4.city");
 cityEntered.innerHTML = city;
-axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
+axios
+  .get(`${apiUrl}&appid=${apiKey}&units=${units}`)
+  .then(displayCurWeatherCondition);
 
 // If user selects the C or F button, calls calcTemp function
 let tempToCorF = document.querySelector("button.CorF");
-tempToCorF.addEventListener("click", calcTemp);
+tempToCorF.addEventListener("click", convertUnits);
 
 // Function to show CURRENT location information AND calls to display city
 function showPosition(position) {
@@ -333,7 +360,6 @@ function showPosition(position) {
 function getForecast(coordinates) {
   let lat = coordinates.lat;
   let lon = coordinates.lon;
-  let units = "imperial";
   let apiKey = `15ed5d92f7b4157fdab57b1053c46052`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   console.log(apiUrl);
