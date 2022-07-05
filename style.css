@@ -155,6 +155,7 @@ li.fullTime {
   border-radius: 40px;
   max-width: 100%;
   margin-left: 8%;
+  font-size: 20px;
 }
 
 #search-text-input:hover {
@@ -172,6 +173,7 @@ li.fullTime {
   max-width: 100%;
   margin-left: 8%;
   cursor: pointer;
+  font-size: 20px;
 }
 
 .currentButton {
@@ -333,7 +335,7 @@ h3.current {
   text-align: center;
   position: relative;
   color: navy;
-  background-color: #d2e3ff;
+  background-color: #bfd6ff;
   border: 2px solid rgb(117, 119, 213);
   border-radius: 4px;
   padding: 10px 10px 10px 10px;
@@ -396,7 +398,7 @@ h4.city {
   text-transform: capitalize;
   align-items: center;
   text-align: center;
-  background-color: #d2e3ff;
+  background-color: #bfd6ff;
   border: 2px solid rgb(117, 119, 213);
   border-radius: 4px;
   flex-wrap: wrap;
@@ -436,7 +438,7 @@ h4.city:hover {
 }
 
 .weatherRow {
-  background-color: #bfd6ff;
+  background-color: #d5e0ff;
   border-radius: 4px;
   align-items: center;
   text-align: center;
@@ -466,7 +468,7 @@ h4.city:hover {
   color: rgb(37, 6, 59);
   border-radius: 4px;
   padding: 10px 10px 10px 10px;
-  background-color: #d2e3ff;
+  background-color: #bfd6ff;
   border: 2px solid rgb(117, 119, 213);
 }
 
