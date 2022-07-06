@@ -335,6 +335,12 @@ function convertUnitsDSC(event) {
 
 // #3 - if CorF button clicked - function to convert units
 function convertUnits(event) {
+  // make an API call to OpenWeather API & once response rcvd, display city name & temp
+  let defaultCity = document.querySelector("h4.city");
+  city = defaultCity.value;
+  let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+
   switch (defaultTemp) {
     case "F":
       units = "metric";
@@ -343,6 +349,8 @@ function convertUnits(event) {
       defaultTemp = "C";
       console.log("Hit switch for F - converting to metric ");
       console.log(units);
+      // make an API call to OpenWeather API & once response rcvd, display city name & temp
+      axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
       break;
     case "C":
       units = "imperial";
@@ -351,11 +359,16 @@ function convertUnits(event) {
       defaultTemp = "F";
       console.log("Hit switch for C - converting to imperial ");
       console.log(units);
+      // make an API call to OpenWeather API & once response rcvd, display city name & temp
+      axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
       break;
     default:
       console.log("Neither switch hit!");
   }
 
+  // make an API call to OpenWeather API & once response rcvd, display city name & temp
+
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
   //   // If user selects the C or F button, calls convertUnits function
   //   tempToCorF.addEventListener("click", convertUnits);
 }
@@ -412,4 +425,4 @@ function getCurrentPosition() {
 curLocButton.addEventListener("click", getCurrentPosition);
 
 // // when user clicks "C or F" button
-// tempToCorF.addEventListener("click", convertUnits);
+tempToCorF.addEventListener("click", convertUnits);
