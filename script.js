@@ -5,8 +5,8 @@ let units = "imperial";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}`;
 let celsiusTemp = null;
 let fahrenTemp = null;
-// let fahrenTempHigh = null;
-// let fahrenTempLow = null;
+let fahrenTempHigh = null;
+let fahrenTempLow = null;
 let celsTempHigh = null;
 let celsTempLow = null;
 let fTempMin = [];
@@ -23,11 +23,13 @@ let CorFLet = document.querySelector("span.CorFLetter");
 CorFLet.innerHTML = "°F";
 let curLocButton = document.querySelector("button.currentButton");
 let tempToCorF = document.querySelector("button.CorF");
-let dateTime = document.querySelector(".dateAndTime");
+
+// testing below Kassie
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Date and Time BELOW -----
+let dateTime = document.querySelector(".dateAndTime");
 let fullDate = document.querySelector("#fullDate");
 let fullDay = document.querySelector("#fullDay");
 let fullTime = document.querySelector("#fullTime");
@@ -93,10 +95,6 @@ if (dateTime) {
 
 // display current weather details
 function displayCurWeatherCondition(response) {
-  if (tempToCorF.addEventListener("click", convertUnits)) {
-    displayCurWeatherCondition(response);
-    console.log("inside tempToCorF event listener!...");
-  }
   city = response.data.name;
   fahrenTemp = response.data.main.temp;
   // fahrenTempHigh = response.data.main.temp.max;
@@ -133,50 +131,38 @@ function formatDay(timestamp) {
 
 // OTHER DAY FORECAST - Write code once and duplicate in JS
 function displayForecast(response) {
-  if (tempToCorF.addEventListener("click", convertUnits)) {
-    displayForecast(response);
-    console.log("inside tempToCorF event listener!...");
-  }
   let forecast = response.data.daily;
-  console.log(forecast);
+  console.log("forecast is " + forecast);
+
+  let tempToCorF = document.querySelector("button.CorF");
+  tempToCorF.addEventListener("click", convertUnits);
 
   let forecastElement = document.querySelector("#forecast");
 
-  ///////
-  // KASSIE COME BACK HERE!
-  // fTempMaxCur = response.temp.max;
-  // document.querySelector("span.highLowHigh").innerHTML =
-  //   Math.round(fTempMaxCur);
-  // fTempMinCur = forecastDay.temp.min;
-  // document.querySelector("span.highLowLow").innerHTML = Math.round(fTempMinCur);
-  // cTempMaxCur = (fTempMaxCur - 32) / 1.8;
-  // cTempMinCur = (fTempMinCur - 32) / 1.8;
-  // ////////
-
   let forecastHTML = `<div class="row weatherRow">`;
   forecast.forEach(function (forecastDay, index) {
-    // if (index < 1) {
-    //   fTempMaxCur = forecastDay.temp.max;
-    //   document.querySelector("span.highLowHigh").innerHTML = Math.round(
-    //     forecastDay.temp.max
-    //   );
-    //   fTempMinCur = forecastDay.temp.min;
-    //   document.querySelector("span.highLowLow").innerHTML = Math.round(
-    //     forecastDay.temp.min
-    //   );
-    //   cTempMaxCur = (fTempMaxCur - 32) / 1.8;
-    //   cTempMinCur = (fTempMinCur - 32) / 1.8;
-    //   ////////
-    // }
+    if (index < 1) {
+      // fTempMaxCur = forecastDay.temp.max;
+      // document.querySelector("span.highLowHigh").innerHTML = Math.round(
+      //   forecastDay.temp.max
+      // );
+      // fTempMinCur = forecastDay.temp.min;
+      // document.querySelector("span.highLowLow").innerHTML = Math.round(
+      //   forecastDay.temp.min
+      // );
+      // cTempMaxCur = (fTempMaxCur - 32) / 1.8;
+      // cTempMinCur = (fTempMinCur - 32) / 1.8;
+      ////////
+    }
     if (index < 5) {
-      // fTempMin[index] = forecastDay.temp.min;
-      // console.log(fTempMin[index]);
-      // fTempMax[index] = forecastDay.temp.max;
-      // console.log(fTempMax[index]);
-      // ////////
-      // cTempMaxCur = (fTempMax[index] - 32) / 1.8;
-      // cTempMinCur = (fTempMin[index] - 32) / 1.8;
-      // ////////
+      fTempMin[index] = forecastDay.temp.min;
+      console.log(fTempMin[index]);
+      fTempMax[index] = forecastDay.temp.max;
+      console.log(fTempMax[index]);
+      ////////
+      cTempMaxCur = (fTempMax[index] - 32) / 1.8;
+      cTempMinCur = (fTempMin[index] - 32) / 1.8;
+      ////////
 
       forecastHTML += `
         <div class="col-2 weather-forecast">
@@ -210,10 +196,7 @@ function displayForecast(response) {
 // Update city based on search input BELOW ------
 function displaySearchedCity(event) {
   event.preventDefault();
-  if (tempToCorF.addEventListener("click", convertUnits)) {
-    displaySearchedCity(event);
-    console.log("inside tempToCorF event listener!...");
-  }
+
   // uses the city name that the user enters
   let searchIn = document.querySelector("#search-text-input");
   let cityInput = document.querySelector("h4.city");
@@ -233,10 +216,6 @@ function displaySearchedCity(event) {
 
 // function used when user clicks "Current Location" button to show city/temp
 function searchCurrentCity(position) {
-  if (tempToCorF.addEventListener("click", convertUnits)) {
-    searchCurrentCity(position);
-    console.log("inside tempToCorF event listener!...");
-  }
   // KASSIE COME BACK NEED TO FIGURE OUT WHY THIS ISN'T REMOVING TEXT IN SEARCH FIELD
   let searchIn = document.querySelector("#search-text-input");
   searchIn.value.innerHTML = "Search for a city";
@@ -248,9 +227,9 @@ function searchCurrentCity(position) {
   // axios.get(`${apiUrl}&appid=${apiKey}`).then(displayOthWeatherCondition);
 }
 
-// // Calls display city function when user submits from search bar
-// let formInput = document.querySelector("#search-form");
-// formInput.addEventListener("submit", displaySearchedCity);
+// Calls display city function when user submits from search bar
+let formInput = document.querySelector("#search-form");
+formInput.addEventListener("submit", displaySearchedCity);
 
 // #0 // function to convert units
 // function convertUnits(event) {
@@ -287,9 +266,9 @@ function searchCurrentCity(position) {
 //   tempToCorF.addEventListener("click", convertUnits);
 // }
 
-// #1 - getCurrentPosition / showPosition / searchCurrentCity /
-// displayCurWeather -- function to convert units
-// function convertUnitsGCP(event) {
+// // #1 - getCurrentPosition / showPosition / searchCurrentCity /
+// // displayCurWeather -- function to convert units
+// function convertUnits(event) {
 //   switch (defaultTemp) {
 //     case "F":
 //       units = "metric";
@@ -364,8 +343,9 @@ function convertUnits(event) {
       console.log("Neither switch hit!");
   }
 
-  // // If user selects the C or F button, calls convertUnits function
-  // tempToCorF.addEventListener("click", convertUnits);
+  // If user selects the C or F button, calls convertUnits function
+  let tempToCorF = document.querySelector("button.CorF");
+  tempToCorF.addEventListener("click", convertUnits);
 }
 
 let cityEntered = document.querySelector("h4.city");
@@ -380,25 +360,6 @@ axios
 
 // Function to show CURRENT location information AND calls to display city
 function showPosition(position) {
-  if (tempToCorF.addEventListener("click", convertUnits)) {
-    showPosition(position);
-    console.log("inside tempToCorF event listener!...");
-
-    console.log(position);
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
-
-    let apiKey = `15ed5d92f7b4157fdab57b1053c46052`;
-
-    let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather`;
-    let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-
-    axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
-    navigator.geolocation.getCurrentPosition(searchCurrentCity);
-
-    curLocButton.addEventListener("click", getCurrentPosition);
-  }
-
   console.log(position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
@@ -411,15 +372,11 @@ function showPosition(position) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
   navigator.geolocation.getCurrentPosition(searchCurrentCity);
 
+  let curLocButton = document.querySelector("button.currentButton");
   curLocButton.addEventListener("click", getCurrentPosition);
 }
 
 function getForecast(coordinates) {
-  if (tempToCorF.addEventListener("click", convertUnits)) {
-    getForecast(coordinates);
-    console.log("inside tempToCorF event listener!...");
-  }
-
   let lat = coordinates.lat;
   let lon = coordinates.lon;
   let apiKey = `15ed5d92f7b4157fdab57b1053c46052`;
@@ -431,15 +388,11 @@ function getForecast(coordinates) {
 
 // calls showPosition
 function getCurrentPosition() {
-  if (tempToCorF.addEventListener("click", convertUnits)) {
-    getCurrentPosition();
-    console.log("inside tempToCorF event listener!...");
-  }
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
 // when user clicks "current location" button
 curLocButton.addEventListener("click", getCurrentPosition);
 
-// // when user clicks "C or F" button
-// tempToCorF.addEventListener("click", convertUnits);
+// when user clicks "C or F" button
+tempToCorF.addEventListener("click", convertUnits);
