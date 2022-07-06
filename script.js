@@ -404,8 +404,8 @@ function getForecast(coordinates) {
 function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(showPosition);
 
-  // If user selects the C or F button, calls convertUnits function
-  tempToCorF.addEventListener("click", convertUnitsGCP);
+  // // If user selects the C or F button, calls convertUnits function
+  // tempToCorF.addEventListener("click", convertUnitsGCP);
 }
 
 // when user clicks "current location" button
