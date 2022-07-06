@@ -91,6 +91,41 @@ if (dateTime) {
 // - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // display current weather details
+function displayDefaultWeatherCondition(response) {
+  console.log("1 - dispalyCurWeatherCondition ARGHAAADHFHREJHGKHSDFKJSEA");
+
+  let defaultCity = document.querySelector("h4.city");
+  city = defaultCity.value;
+  fahrenTemp = response.data.main.temp;
+  // fahrenTempHigh = response.data.main.temp.max;
+  // fahrenTempLow = response.data.main.temp.min;
+  // console.log(fahrenTempHigh + " " + fahrenTempLow);
+
+  let iconElement = document.querySelector("#currentIcon");
+  document.querySelector("h4.city").innerHTML = city;
+  document.querySelector("span.currentTemp").innerHTML = Math.round(fahrenTemp);
+  //document.querySelector("span.CorFLetter").innerHTML = "°F";
+  // document.querySelector(".CorF").innerHTML = " °C or [°F] ";
+  document.querySelector("span.currentDescription").innerHTML =
+    response.data.weather[0].description;
+  document.querySelector("span.currentHumidity").innerHTML =
+    response.data.main.humidity + "%";
+  document.querySelector("span.currentWind").innerHTML =
+    Math.round(response.data.wind.speed) + "mph";
+
+  let iconData = response.data.weather[0].icon;
+
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconData}@2x.png`
+  );
+  getForecast(response.data.coord);
+
+  // // when user clicks "C or F" button
+  tempToCorF.addEventListener("click", convertUnits);
+}
+
+// display current weather details
 function displayCurWeatherCondition(response) {
   console.log("1 - dispalyCurWeatherCondition ARGHAAADHFHREJHGKHSDFKJSEA");
   city = response.data.name;
@@ -351,7 +386,9 @@ function convertUnits(event) {
       console.log("Hit switch for F - converting to metric ");
       console.log(units);
       // make an API call to OpenWeather API & once response rcvd, display city name & temp
-      axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
+      // axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
+      //displayDefaultWeatherCondition;
+      axios.get(`${apiUrl}`).then(displayDefaultWeatherCondition);
       break;
     case "C":
       units = "imperial";
@@ -361,7 +398,9 @@ function convertUnits(event) {
       console.log("Hit switch for C - converting to imperial ");
       console.log(units);
       // make an API call to OpenWeather API & once response rcvd, display city name & temp
-      axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
+      //  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
+      // displayDefaultWeatherCondition;
+      axios.get(`${apiUrl}`).then(displayDefaultWeatherCondition);
       break;
     default:
       console.log("Neither switch hit!");
