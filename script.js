@@ -5,16 +5,16 @@ let units = "imperial";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}`;
 let celsiusTemp = null;
 let fahrenTemp = null;
-let fahrenTempHigh = null;
-let fahrenTempLow = null;
+// let fahrenTempHigh = null;
+// let fahrenTempLow = null;
 let celsTempHigh = null;
 let celsTempLow = null;
 let fTempMin = [];
 let fTempMax = [];
-let fTempMaxCur = null;
-let fTempMinCur = null;
-let cTempMaxCur = null;
-let cTempMinCur = null;
+// let fTempMaxCur = null;
+// let fTempMinCur = null;
+// let cTempMaxCur = null;
+// let cTempMinCur = null;
 let cTempMin = null;
 let cTempMax = null;
 let defaultTemp = "F";
@@ -77,11 +77,8 @@ function displayDate() {
     "Dec",
   ];
   let mon = monthNames[month];
-
   fullDate.innerHTML = mon + " " + dayOfMon + ", " + year;
-
   fullDay.innerHTML = wkDay;
-
   fullTime.innerHTML = hour + ":" + minutes + ampm;
 }
 
@@ -95,6 +92,7 @@ if (dateTime) {
 
 // display current weather details
 function displayCurWeatherCondition(response) {
+  console.log("1 - dispalyCurWeatherCondition ARGHAAADHFHREJHGKHSDFKJSEA");
   city = response.data.name;
   fahrenTemp = response.data.main.temp;
   // fahrenTempHigh = response.data.main.temp.max;
@@ -120,6 +118,9 @@ function displayCurWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${iconData}@2x.png`
   );
   getForecast(response.data.coord);
+
+  // // when user clicks "C or F" button
+  tempToCorF.addEventListener("click", convertUnits);
 }
 
 function formatDay(timestamp) {
@@ -131,6 +132,7 @@ function formatDay(timestamp) {
 
 // OTHER DAY FORECAST - Write code once and duplicate in JS
 function displayForecast(response) {
+  console.log("3 - displayForecast KASSSIEeE - ARGHAAADHFHREJHGKHSDFKJSEA");
   let forecast = response.data.daily;
   // console.log("forecast is " + forecast);
 
@@ -141,28 +143,27 @@ function displayForecast(response) {
 
   let forecastHTML = `<div class="row weatherRow">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 1) {
-      // fTempMaxCur = forecastDay.temp.max;
-      // document.querySelector("span.highLowHigh").innerHTML = Math.round(
-      //   forecastDay.temp.max
-      // );
-      // fTempMinCur = forecastDay.temp.min;
-      // document.querySelector("span.highLowLow").innerHTML = Math.round(
-      //   forecastDay.temp.min
-      // );
-      // cTempMaxCur = (fTempMaxCur - 32) / 1.8;
-      // cTempMinCur = (fTempMinCur - 32) / 1.8;
-      ////////
-    }
+    // if (index < 1) {
+    //   fTempMaxCur = forecastDay.temp.max;
+
+    //   fTempMinCur = forecastDay.temp.min;
+
+    //   cTempMaxCur = (fTempMaxCur - 32) / 1.8;
+    //   cTempMinCur = (fTempMinCur - 32) / 1.8;
+    //   ////////
+    // }
     if (index < 5) {
-      fTempMin[index] = forecastDay.temp.min;
-      //  console.log(fTempMin[index]);
-      fTempMax[index] = forecastDay.temp.max;
-      //  console.log(fTempMax[index]);
-      ////////
-      cTempMaxCur = (fTempMax[index] - 32) / 1.8;
-      cTempMinCur = (fTempMin[index] - 32) / 1.8;
-      ////////
+      // fTempMin[index] = forecastDay.temp.min;
+      // //  console.log(fTempMin[index]);
+      // fTempMax[index] = forecastDay.temp.max;
+      // //  console.log(fTempMax[index]);
+      // ////////
+      // // cTempMaxCur = (fTempMax[index] - 32) / 1.8;
+      // // cTempMinCur = (fTempMin[index] - 32) / 1.8;
+      // ////////
+      // cTempMax = (fTempMax[index] - 32) / 1.8;
+      // cTempMin = (fTempMin[index] - 32) / 1.8;
+      // ////////
 
       forecastHTML += `
         <div class="col-2 weather-forecast">
@@ -299,7 +300,7 @@ function convertUnitsGCP(event) {
   navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-// // #2 - searchedCity.....displaySearchedCity / displayCurWeatherCondition /
+// // #2 - searchedCity.....displaySearchedCity /
 // // getForecast / displayForecast /  function to convert units
 function convertUnitsDSC(event) {
   switch (defaultTemp) {
@@ -368,7 +369,7 @@ function convertUnits(event) {
 
   // make an API call to OpenWeather API & once response rcvd, display city name & temp
 
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
+  //axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
   //   // If user selects the C or F button, calls convertUnits function
   //   tempToCorF.addEventListener("click", convertUnits);
 }
@@ -404,6 +405,7 @@ function showPosition(position) {
 }
 
 function getForecast(coordinates) {
+  console.log("2 - getForecast ZZZZZZARGHAAADHFHREJHGKHSDFKJSEA");
   let lat = coordinates.lat;
   let lon = coordinates.lon;
   let apiKey = `15ed5d92f7b4157fdab57b1053c46052`;
@@ -423,6 +425,3 @@ function getCurrentPosition() {
 
 // when user clicks "current location" button
 curLocButton.addEventListener("click", getCurrentPosition);
-
-// // when user clicks "C or F" button
-tempToCorF.addEventListener("click", convertUnits);
