@@ -253,6 +253,19 @@ function displaySearchedCity(event) {
   tempToCorF.addEventListener("click", convertUnitsDSC);
 }
 
+// function used when user clicks "CorF" on default city...?
+function searchDefaultCity(position) {
+  // KASSIE COME BACK NEED TO FIGURE OUT WHY THIS ISN'T REMOVING TEXT IN SEARCH FIELD
+
+  let defaultCity = document.querySelector("h4.city");
+  city = defaultCity.value;
+  let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+
+  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
+  // axios.get(`${apiUrl}&appid=${apiKey}`).then(displayOthWeatherCondition);
+}
+
 // function used when user clicks "Current Location" button to show city/temp
 function searchCurrentCity(position) {
   // KASSIE COME BACK NEED TO FIGURE OUT WHY THIS ISN'T REMOVING TEXT IN SEARCH FIELD
@@ -364,9 +377,8 @@ function convertUnitsDSC(event) {
       // displaySearchedCity(event);
       break;
   }
-
-  // Calls display city function when user submits from search bar
-  displaySearchedCity(event);
+  // // Calls display city function when user submits from search bar
+  // displaySearchedCity(event);
 }
 
 // #3 - if CorF button clicked - function to convert units
@@ -388,7 +400,10 @@ function convertUnits(event) {
       // make an API call to OpenWeather API & once response rcvd, display city name & temp
       // axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
       //displayDefaultWeatherCondition;
-      axios.get(`${apiUrl}`).then(displayDefaultWeatherCondition);
+      // apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+      // axios.get(`${apiUrl}`).then(displayDefaultWeatherCondition);
+      // TRY UNCOMMENTING ABOVE AND PLAYING WITH THAT TO SEE WHAT'S GOING ON
+      navigator.geolocation.getCurrentPosition(searchDefaultCity);
       break;
     case "C":
       units = "imperial";
@@ -400,7 +415,10 @@ function convertUnits(event) {
       // make an API call to OpenWeather API & once response rcvd, display city name & temp
       //  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
       // displayDefaultWeatherCondition;
-      axios.get(`${apiUrl}`).then(displayDefaultWeatherCondition);
+      // apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+      // axios.get(`${apiUrl}`).then(displayDefaultWeatherCondition);
+      // TRY UNCOMMENTING ABOVE AND PLAYING WITH THAT TO SEE WHAT'S GOING ON
+      navigator.geolocation.getCurrentPosition(searchDefaultCity);
       break;
     default:
       console.log("Neither switch hit!");
@@ -436,7 +454,6 @@ function showPosition(position) {
 
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
   navigator.geolocation.getCurrentPosition(searchCurrentCity);
-
   //  curLocButton.addEventListener("click", getCurrentPosition);
 
   // If user selects the C or F button, calls convertUnits function
