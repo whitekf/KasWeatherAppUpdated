@@ -23,6 +23,7 @@ let CorFLet = document.querySelector("span.CorFLetter");
 CorFLet.innerHTML = "°F";
 let curLocButton = document.querySelector("button.currentButton");
 let tempToCorF = document.querySelector("button.CorF");
+let lastRequest = "D"; // D = Default, SC = SearchedCity, GCP = GetCurrentPosition
 
 // testing below Kassie
 
@@ -92,6 +93,7 @@ if (dateTime) {
 
 // display current weather details
 function displayDefaultWeatherCondition(response) {
+  lastRequest = "D";
   console.log("1 - dispalyCurWeatherCondition ARGHAAADHFHREJHGKHSDFKJSEA");
 
   let defaultCity = document.querySelector("h4.city");
@@ -127,13 +129,13 @@ function displayDefaultWeatherCondition(response) {
 
 // display current weather details
 function displayCurWeatherCondition(response) {
+  lastRequest = "GCP";
   console.log("1 - dispalyCurWeatherCondition ARGHAAADHFHREJHGKHSDFKJSEA");
   city = response.data.name;
   fahrenTemp = response.data.main.temp;
   // fahrenTempHigh = response.data.main.temp.max;
   // fahrenTempLow = response.data.main.temp.min;
   // console.log(fahrenTempHigh + " " + fahrenTempLow);
-
   let iconElement = document.querySelector("#currentIcon");
   document.querySelector("h4.city").innerHTML = city;
   document.querySelector("span.currentTemp").innerHTML = Math.round(fahrenTemp);
@@ -145,15 +147,12 @@ function displayCurWeatherCondition(response) {
     response.data.main.humidity + "%";
   document.querySelector("span.currentWind").innerHTML =
     Math.round(response.data.wind.speed) + "mph";
-
   let iconData = response.data.weather[0].icon;
-
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${iconData}@2x.png`
   );
   getForecast(response.data.coord);
-
   // // when user clicks "C or F" button
   tempToCorF.addEventListener("click", convertUnits);
 }
@@ -170,19 +169,14 @@ function displayForecast(response) {
   console.log("3 - displayForecast KASSSIEeE - ARGHAAADHFHREJHGKHSDFKJSEA");
   let forecast = response.data.daily;
   // console.log("forecast is " + forecast);
-
   // let tempToCorF = document.querySelector("button.CorF");
   // tempToCorF.addEventListener("click", convertUnits);
-
   let forecastElement = document.querySelector("#forecast");
-
   let forecastHTML = `<div class="row weatherRow">`;
   forecast.forEach(function (forecastDay, index) {
     // if (index < 1) {
     //   fTempMaxCur = forecastDay.temp.max;
-
     //   fTempMinCur = forecastDay.temp.min;
-
     //   cTempMaxCur = (fTempMaxCur - 32) / 1.8;
     //   cTempMinCur = (fTempMinCur - 32) / 1.8;
     //   ////////
@@ -199,7 +193,6 @@ function displayForecast(response) {
       // cTempMax = (fTempMax[index] - 32) / 1.8;
       // cTempMin = (fTempMin[index] - 32) / 1.8;
       // ////////
-
       forecastHTML += `
         <div class="col-2 weather-forecast">
           <div class="weather-forecast-day">${formatDay(forecastDay.dt)}</div>
@@ -224,7 +217,6 @@ function displayForecast(response) {
       `;
     }
   });
-
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
@@ -232,14 +224,13 @@ function displayForecast(response) {
 // Update city based on search input BELOW ------
 function displaySearchedCity(event) {
   event.preventDefault();
-
+  lastRequest = "SC";
   // uses the city name that the user enters
   let searchIn = document.querySelector("#search-text-input");
   let cityInput = document.querySelector("h4.city");
-
+  cityInput.innerHTML = searchIn.value;
   // make an API call to OpenWeather API & once response rcvd, display city name & temp
   if (searchIn.value) {
-    cityInput.innerHTML = searchIn.value;
     let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
     // let city = document.querySelector("h4.city").value;
     let city = searchIn.value;
@@ -249,29 +240,28 @@ function displaySearchedCity(event) {
     cityInput.innerHTML = "Please enter a city.";
   }
 
-  // If user selects the C or F button, calls convertUnits function
-  tempToCorF.addEventListener("click", convertUnitsDSC);
+  // // If user selects the C or F button, calls convertUnits function
+  // tempToCorF.addEventListener("click", convertUnitsDSC);
 }
 
 // function used when user clicks "CorF" on default city...?
 function searchDefaultCity(position) {
+  lastRequest = "D";
   // KASSIE COME BACK NEED TO FIGURE OUT WHY THIS ISN'T REMOVING TEXT IN SEARCH FIELD
-
   let defaultCity = document.querySelector("h4.city");
   city = defaultCity.value;
   let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
   // axios.get(`${apiUrl}&appid=${apiKey}`).then(displayOthWeatherCondition);
 }
 
 // function used when user clicks "Current Location" button to show city/temp
 function searchCurrentCity(position) {
+  lastRequest = "GCP";
   // KASSIE COME BACK NEED TO FIGURE OUT WHY THIS ISN'T REMOVING TEXT IN SEARCH FIELD
   let searchIn = document.querySelector("#search-text-input");
   searchIn.value.innerHTML = "Search for a city";
-
   let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
   // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
@@ -282,7 +272,6 @@ function searchCurrentCity(position) {
 // Calls display city function when user submits from search bar
 let formInput = document.querySelector("#search-form");
 formInput.addEventListener("submit", displaySearchedCity);
-
 // #0 // function to convert units
 // function convertUnits(event) {
 //   switch (defaultTemp) {
@@ -305,14 +294,11 @@ formInput.addEventListener("submit", displaySearchedCity);
 //     default:
 //       console.log("Neither switch hit!");
 //   }
-
 //   let curLocButton = document.querySelector("button.currentButton");
 //   curLocButton.addEventListener("click", getCurrentPosition);
-
 //   // Calls display city function when user submits from search bar
 //   let formInput = document.querySelector("#search-form");
 //   formInput.addEventListener("submit", displaySearchedCity);
-
 //   // If user selects the C or F button, calls convertUnits function
 //   let tempToCorF = document.querySelector("button.CorF");
 //   tempToCorF.addEventListener("click", convertUnits);
@@ -388,7 +374,6 @@ function convertUnits(event) {
   city = defaultCity.value;
   let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-
   switch (defaultTemp) {
     case "F":
       units = "metric";
@@ -423,9 +408,7 @@ function convertUnits(event) {
     default:
       console.log("Neither switch hit!");
   }
-
   // make an API call to OpenWeather API & once response rcvd, display city name & temp
-
   //axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
   //   // If user selects the C or F button, calls convertUnits function
   //   tempToCorF.addEventListener("click", convertUnits);
@@ -436,26 +419,22 @@ cityEntered.innerHTML = city;
 axios
   .get(`${apiUrl}&appid=${apiKey}&units=${units}`)
   .then(displayCurWeatherCondition);
-
 // // If user selects the C or F button, calls calcTemp function
 // let tempToCorF = document.querySelector("button.CorF");
 // tempToCorF.addEventListener("click", convertUnits);
 
 // Function to show CURRENT location information AND calls to display city
 function showPosition(position) {
+  lastRequest = "GCP";
   console.log("showPosition hit - and is " + position);
   let latitude = position.coords.latitude;
   let longitude = position.coords.longitude;
-
   let apiKey = `15ed5d92f7b4157fdab57b1053c46052`;
-
   let apiEndpoint = `https://api.openweathermap.org/data/2.5/weather`;
   let apiUrl = `${apiEndpoint}?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=${units}`;
-
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
   navigator.geolocation.getCurrentPosition(searchCurrentCity);
   //  curLocButton.addEventListener("click", getCurrentPosition);
-
   // If user selects the C or F button, calls convertUnits function
   tempToCorF.addEventListener("click", convertUnitsGCP);
 }
@@ -473,8 +452,8 @@ function getForecast(coordinates) {
 
 // calls showPosition
 function getCurrentPosition() {
+  lastRequest = "GCP";
   navigator.geolocation.getCurrentPosition(showPosition);
-
   // // If user selects the C or F button, calls convertUnits function
   // tempToCorF.addEventListener("click", convertUnitsGCP);
 }
