@@ -11,6 +11,7 @@ let celsTempHigh = null;
 let celsTempLow = null;
 let fTempMin = [];
 let fTempMax = [];
+
 // let fTempMaxCur = null;
 // let fTempMinCur = null;
 // let cTempMaxCur = null;
@@ -18,6 +19,9 @@ let fTempMax = [];
 let cTempMin = null;
 let cTempMax = null;
 let defaultTemp = "F";
+let windUnits = "mph";
+let windUnitDisplay = document.querySelector("span.currentWindUnits");
+windUnitDisplay = "mph";
 let CorFBut = document.querySelector(".CorF");
 let CorFLet = document.querySelector("span.CorFLetter");
 CorFLet.innerHTML = "°F";
@@ -100,7 +104,7 @@ function displayDefaultWeatherCondition(response) {
   document.querySelector("span.currentHumidity").innerHTML =
     response.data.main.humidity + "%";
   document.querySelector("span.currentWind").innerHTML =
-    Math.round(response.data.wind.speed) + "mph";
+    Math.round(response.data.wind.speed) + windUnits;
   let iconData = response.data.weather[0].icon;
   iconElement.setAttribute(
     "src",
@@ -123,7 +127,7 @@ function displayCurWeatherCondition(response) {
   document.querySelector("span.currentHumidity").innerHTML =
     response.data.main.humidity + "%";
   document.querySelector("span.currentWind").innerHTML =
-    Math.round(response.data.wind.speed) + "mph";
+    Math.round(response.data.wind.speed) + windUnits;
   let iconData = response.data.weather[0].icon;
   iconElement.setAttribute(
     "src",
@@ -277,109 +281,119 @@ formInput.addEventListener("submit", displaySearchedCity);
 //   tempToCorF.addEventListener("click", convertUnits);
 // }
 
-// // #1 - getCurrentPosition / showPosition / searchCurrentCity /
-// // displayCurWeather -- function to convert units
-function convertUnitsGCP(event) {
-  switch (defaultTemp) {
-    case "F":
-      units = "metric";
-      CorFLet.innerHTML = "°C";
-      CorFBut.innerHTML = " [°C] or °F ";
-      defaultTemp = "C";
-      console.log("Hit switch for F - converting to metric ");
-      console.log(units);
-      navigator.geolocation.getCurrentPosition(showPosition);
-      break;
-    case "C":
-      units = "imperial";
-      CorFLet.innerHTML = "°F";
-      CorFBut.innerHTML = " °C or [°F] ";
-      defaultTemp = "F";
-      console.log("Hit switch for C - converting to imperial ");
-      console.log(units);
-      navigator.geolocation.getCurrentPosition(showPosition);
-      break;
-    default:
-      console.log("Neither switch hit!");
-      //navigator.geolocation.getCurrentPosition(showPosition);
-      break;
-  }
-  navigator.geolocation.getCurrentPosition(showPosition);
-}
+// // // #1 - getCurrentPosition / showPosition / searchCurrentCity /
+// // // displayCurWeather -- function to convert units
+// function convertUnitsGCP(event) {
+//   switch (defaultTemp) {
+//     case "F":
+//       units = "metric";
+//       CorFLet.innerHTML = "°C";
+//       CorFBut.innerHTML = " [°C] or °F ";
+//       defaultTemp = "C";
+//       windUnits = "kph";
+//       windUnitDisplay = "kph";
+//       windUnitDisplay.innerHTML = "kph";
+//       console.log("Hit switch for F - converting to metric ");
+//       console.log(units);
+//       navigator.geolocation.getCurrentPosition(showPosition);
+//       break;
+//     case "C":
+//       units = "imperial";
+//       CorFLet.innerHTML = "°F";
+//       CorFBut.innerHTML = " °C or [°F] ";
+//       defaultTemp = "F";
+//       windUnits = "mph";
+//       windUnitDisplay = "mph";
+//       windUnitDisplay.innerHTML = "mph";
+//       console.log("Hit switch for C - converting to imperial ");
+//       console.log(units);
+//       navigator.geolocation.getCurrentPosition(showPosition);
+//       break;
+//     default:
+//       console.log("Neither switch hit!");
+//       //navigator.geolocation.getCurrentPosition(showPosition);
+//       break;
+//   }
+//   navigator.geolocation.getCurrentPosition(showPosition);
+// }
 
-// // #2 - searchedCity.....displaySearchedCity /
-// // getForecast / displayForecast /  function to convert units
-function convertUnitsDSC(event) {
-  switch (defaultTemp) {
-    case "F":
-      units = "metric";
-      CorFLet.innerHTML = "°C";
-      CorFBut.innerHTML = " [°C] or °F ";
-      defaultTemp = "C";
-      console.log("Hit switch for F - converting to metric ");
-      console.log(units);
-      // Calls display city function when user submits from search bar
-      displaySearchedCity(event);
-      break;
-    case "C":
-      units = "imperial";
-      CorFLet.innerHTML = "°F";
-      CorFBut.innerHTML = " °C or [°F] ";
-      defaultTemp = "F";
-      console.log("Hit switch for C - converting to imperial ");
-      console.log(units);
-      // Calls display city function when user submits from search bar
-      displaySearchedCity(event);
-      break;
-    default:
-      console.log("Neither switch hit = PROBLEM");
-      // displaySearchedCity(event);
-      break;
-  }
-  // // Calls display city function when user submits from search bar
-  // displaySearchedCity(event);
-}
+// // // #2 - searchedCity.....displaySearchedCity /
+// // // getForecast / displayForecast /  function to convert units
+// function convertUnitsDSC(event) {
+//   switch (defaultTemp) {
+//     case "F":
+//       units = "metric";
+//       CorFLet.innerHTML = "°C";
+//       CorFBut.innerHTML = " [°C] or °F ";
+//       defaultTemp = "C";
+//       console.log("Hit switch for F - converting to metric ");
+//       console.log(units);
+//       // Calls display city function when user submits from search bar
+//       displaySearchedCity(event);
+//       break;
+//     case "C":
+//       units = "imperial";
+//       CorFLet.innerHTML = "°F";
+//       CorFBut.innerHTML = " °C or [°F] ";
+//       defaultTemp = "F";
+//       console.log("Hit switch for C - converting to imperial ");
+//       console.log(units);
+//       // Calls display city function when user submits from search bar
+//       displaySearchedCity(event);
+//       break;
+//     default:
+//       console.log("Neither switch hit = PROBLEM");
+//       // displaySearchedCity(event);
+//       break;
+//   }
+//   // // Calls display city function when user submits from search bar
+//   // displaySearchedCity(event);
+// }
 
 // #3 - if CorF button clicked - function to convert units
 function convertUnits(event) {
-  // make an API call to OpenWeather API & once response rcvd, display city name & temp
-  let defaultCity = document.querySelector("h4.city");
-  city = defaultCity.value;
-  let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+  // // make an API call to OpenWeather API & once response rcvd, display city name & temp
+  // let defaultCity = document.querySelector("h4.city");
+  // city = defaultCity.value;
+
+  let cityEntered = document.querySelector("h4.city");
+  cityEntered.innerHTML = city;
+
+  // let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
+  // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
   switch (defaultTemp) {
     case "F":
       units = "metric";
       CorFLet.innerHTML = "°C";
       CorFBut.innerHTML = " [°C] or °F ";
       defaultTemp = "C";
+      windUnits = "kph";
+      windUnitDisplay = "kph";
+      windUnitDisplay.innerHTML = "kph";
       console.log("Hit switch for F - converting to metric ");
       console.log(units);
-      // make an API call to OpenWeather API & once response rcvd, display city name & temp
-      // axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
-      //displayDefaultWeatherCondition;
-      // apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-      // axios.get(`${apiUrl}`).then(displayDefaultWeatherCondition);
-      // TRY UNCOMMENTING ABOVE AND PLAYING WITH THAT TO SEE WHAT'S GOING ON
-      navigator.geolocation.getCurrentPosition(searchDefaultCity);
       break;
     case "C":
       units = "imperial";
       CorFLet.innerHTML = "°F";
       CorFBut.innerHTML = " °C or [°F] ";
       defaultTemp = "F";
+      windUnits = "mph";
+      windUnitDisplay = "mph";
+      windUnitDisplay.innerHTML = "mph";
       console.log("Hit switch for C - converting to imperial ");
       console.log(units);
-      // make an API call to OpenWeather API & once response rcvd, display city name & temp
-      //  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
-      // displayDefaultWeatherCondition;
-      // apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-      // axios.get(`${apiUrl}`).then(displayDefaultWeatherCondition);
-      // TRY UNCOMMENTING ABOVE AND PLAYING WITH THAT TO SEE WHAT'S GOING ON
-      navigator.geolocation.getCurrentPosition(searchDefaultCity);
       break;
     default:
-      console.log("Neither switch hit!");
+      console.log("PROBLEM -- Neither switch was hit!");
+  }
+  console.log("KASSIE IS TESTING THIS 0 AND FINGERS AND TOES ARE CROSSED ISH!");
+  if (lastRequest === "D" || lastRequest === "GCP" || lastRequest === "SC") {
+    // let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
+    apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    axios
+      .get(`${apiUrl}&appid=${apiKey}&units=${units}`)
+      .then(displayCurWeatherCondition);
   }
   // make an API call to OpenWeather API & once response rcvd, display city name & temp
   //axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
@@ -432,16 +446,15 @@ function clearForm(searchedItem) {
 // calls showPosition
 function getCurrentPosition() {
   lastRequest = "GCP";
-
   // KASSIE COME BACK NEED TO FIGURE OUT WHY THIS ISN'T REMOVING TEXT IN SEARCH FIELD
   let searchIn = document.querySelector("#search-text-input");
-  let searchInForm = document.querySelector("#search-form");
   clearForm(searchIn);
-  searchIn.innerHTML = "Search for a city";
   navigator.geolocation.getCurrentPosition(showPosition);
   // // If user selects the C or F button, calls convertUnits function
   // tempToCorF.addEventListener("click", convertUnitsGCP);
 }
+
+tempToCorF.addEventListener("click", convertUnits);
 
 // when user clicks "current location" button
 curLocButton.addEventListener("click", getCurrentPosition);
