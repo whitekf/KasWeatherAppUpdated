@@ -99,6 +99,16 @@ function displayWeatherCondition(response) {
     "src",
     `http://openweathermap.org/img/wn/${iconData}@2x.png`
   );
+
+  // Testing to see if can update the background based on the weather description
+  // let curBackground = document.querySelector("h3.current");
+  // let newBackground = document.querySelector("h3.current");
+  // let curDescip = response.data.weather[0].description;
+  // if (curDescip.split(" ").includes("clear")) {
+  //   newBackground.innerHTML = `<div class="clearSky">
+  //     </div>`;
+  // }
+
   getForecast(response.data.coord);
 }
 
@@ -153,6 +163,13 @@ function displaySearchedCity(event) {
   let cityInput = document.querySelector("h4.city");
   cityInput.innerHTML = searchIn.value;
   // make an API call to OpenWeather API & once response rcvd, display city name & temp
+  // if (searchIn.value === " ") {
+  //   cityInput.innerHTML = "Please enter a city.";
+  // }
+  searchIn.value.trim();
+  if (searchIn.value === " ") {
+    cityInput.innerHTML = "Please enter a city.";
+  }
   if (searchIn.value) {
     let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
     let city = searchIn.value;
