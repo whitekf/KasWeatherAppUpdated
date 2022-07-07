@@ -34,7 +34,6 @@ li {
   overflow: hidden;
   text-align: left;
   font-size: 3em;
-  margin-left: 4%;
   padding-left: 5%;
   padding-top: 1%;
   color: rgb(10, 10, 142);
@@ -49,7 +48,6 @@ li {
   overflow: hidden;
   text-align: left;
   font-size: 3.1em;
-  margin-left: 4%;
   padding-left: 5%;
   padding-top: 1%;
   color: navy;
@@ -101,7 +99,7 @@ h3.dateAndTime {
   position: sticky;
   text-align: right;
   overflow: hidden;
-  color: navy;
+  color: rgb(10, 10, 142);
   margin-top: 8%;
   padding-top: 4%;
   font-size: 1.5em;
@@ -115,10 +113,10 @@ h3.dateAndTime:hover {
   flex-wrap: wrap;
   position: sticky;
   text-align: right;
+  color: rgb(10, 10, 142);
   overflow: hidden;
   text-shadow: 1px 1px 1px #d6cdec;
   margin-top: 8%;
-  margin-right: 3%;
   padding-top: 2%;
   font-size: 1.6em;
   font-weight: bold;
@@ -235,9 +233,8 @@ input.inputButton:hover {
   color: rgb(27, 27, 176);
   text-align: left;
   font-size: 2.1em;
-  margin-left: 30%;
+  margin-left: 20%;
   font-weight: bold;
-  margin-top: 15px;
 }
 
 button.CorF {
@@ -246,7 +243,6 @@ button.CorF {
   padding: 5px 10px 5px 10px;
   border-radius: 25px;
   font-size: 1em;
-  margin-right: 10px;
   color: navy;
   display: block;
   outline: none;
@@ -254,7 +250,7 @@ button.CorF {
   text-align: center;
   position: static;
   border: 2px solid rgb(117, 119, 213);
-  box-shadow: 1px 1px 1px 1px #5a77d5;
+  box-shadow: 1px 1px 1px #5a77d5;
   max-width: 100%;
 }
 
@@ -265,7 +261,6 @@ button.CorF:hover {
   border: 2px solid rgb(233, 255, 38);
   border-radius: 25px;
   font-size: 1em;
-  margin-right: 10px;
   cursor: pointer;
   border: 2px solid rgb(217, 47, 255);
   padding: 5px 10px 5px 10px;
@@ -382,10 +377,6 @@ img {
   font-weight: bold;
 }
 
-.citybox {
-  text-align: center;
-}
-
 h4.city {
   display: flex;
   text-transform: capitalize;
@@ -433,22 +424,18 @@ h4.city:hover {
 }
 
 .weatherRow {
-  background-color: #d5e0ff;
+  background-color: #bfd6ff;
   border-radius: 4px;
   align-items: center;
   text-align: center;
   padding: 1% 1% 1% 1%;
-  margin-left: 3%;
-  margin-right: 3%;
 }
 
 .weatherRow:hover {
   align-items: center;
   text-align: center;
   padding: 1% 1% 1% 1%;
-  margin-left: 3%;
-  margin-right: 3%;
-  background-color: #bfd6ff;
+  background-color: #d5e0ff;
   border-radius: 20px;
 }
 
