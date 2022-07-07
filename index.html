@@ -44,7 +44,7 @@
         <!-- Two Divs above should stay open until end -->
 
         <div class="row">
-          <div class="col-9 align-self-center">
+          <div class="col-8 align-self-center">
             <h1 class="mainHeading">Weather, anywhere.</h1>
           </div>
           <div class="col-3 align-self-center">
@@ -56,24 +56,27 @@
               </ul>
             </h3>
           </div>
+          <div class="col-1"></div>
         </div>
 
         <div class="row">
-          <div class="col-10">
+          <div class="col-1"></div>
+          <div class="col-8">
             <form id="search-form">
               <input
                 type="text"
-                size="40%"
+                size="50%"
                 placeholder="Search for a city"
                 autocomplete="off"
                 autofocus="on"
                 id="search-text-input"
               />
-
-              <input class="inputButton" type="submit" value="Search" />
             </form>
           </div>
-          <div class="col-2"></div>
+          <div class="col-2">
+            <input class="inputButton" type="submit" value="Search" />
+          </div>
+          <div class="col-1"></div>
         </div>
 
         <!-- -->
@@ -105,12 +108,9 @@
                 <li>
                   Current:
                   <span class="currentTemp"> X </span
-                  ><span class="CorFLetter" size="100">°F </span>
+                  ><span class="CorFLetter">°F </span>
                   <br />
-                  <span
-                    class="currentDescription align-self-center"
-                    size="100%"
-                  >
+                  <span class="currentDescription align-self-center">
                     Weather
                   </span>
                 </li>
@@ -120,8 +120,8 @@
                 </li>
                 <li>
                   Wind:
-                  <span class="currentWind" size="100%"> X</span>
-                  <span class="currentWindUnits" size="100%"> </span>
+                  <span class="currentWind"> X</span>
+                  <span class="currentWindUnits"> </span>
                 </li>
                 <!-- <li>
                   High/Low:
@@ -129,19 +129,20 @@
                   <span class="highLowLow" size="100"> X </span>°
                 </li> -->
               </ul>
-              <div class="col-2 align-self-center curWeatherIcon">
+              <div class="align-self-center curWeatherIcon">
                 <img
                   src="https://ssl.gstatic.com/onebox/weather/64/sunny.png"
                   alt="weather image"
                   id="currentIcon"
+                  width="102"
                 />
               </div>
             </h3>
           </div>
-
-          <div class="col-3 cityBox align-self-center">
-            <h4 class="city">Richmond, Virginia</h4>
+          <div class="col-4 cityBox align-self-center">
+            <h4 class="city">Richmond</h4>
           </div>
+          <div class="col-1"></div>
         </div>
 
         <!-- <item> -->
@@ -169,10 +170,9 @@
       </div>
     </div>
     <script src="script.js"></script>
-    <!-- testing rainbow -->
+    <!--  rainbow border -->
     <div class="rainbowContainer">
       <div class="top-round-rainbow"></div>
     </div>
-    <!-- testing rainbow -->
   </body>
 </html>

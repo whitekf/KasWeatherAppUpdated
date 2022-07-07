@@ -3,15 +3,17 @@ body {
   font-family: Helvetica, "Consolas", "Courier New", monospace;
 }
 
+.container {
+  background-color: d5e0ff;
+}
+
 .centerBox {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
   background-color: #add1fe;
-  border-radius: 4px;
+  border-radius: 4%;
   display: block;
-  margin-left: 3%;
-  margin-right: 3%;
   margin-top: 1%;
   margin-bottom: 1%;
 }
@@ -30,8 +32,8 @@ li {
   position: sticky;
   overflow: hidden;
   text-align: left;
-  font-size: 54px;
-  margin-left: 15px;
+  font-size: 3.3em;
+  margin-left: 4%;
   padding-left: 5%;
   padding-top: 1%;
   color: navy;
@@ -45,8 +47,8 @@ li {
   position: sticky;
   overflow: hidden;
   text-align: left;
-  font-size: 56px;
-  margin-left: 15px;
+  font-size: 3.4em;
+  margin-left: 4%;
   padding-left: 5%;
   padding-top: 1%;
   color: navy;
@@ -55,9 +57,9 @@ li {
 }
 
 .rainbowContainer {
-  background: #ffffff;
+  background: #d5e0ff;
   width: 100%;
-  height: 20px;
+  height: 1em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -86,7 +88,7 @@ li {
     #61c2e4 350px,
     #61c2e4 400px
   );
-  background-size: 100% 10px;
+  background-size: 100% 1em;
   background-repeat: no-repeat;
 }
 
@@ -100,8 +102,8 @@ h3.dateAndTime {
   overflow: hidden;
   color: navy;
   margin-top: 8%;
-  padding-top: 3%;
-  font-size: 24px;
+  padding-top: 4%;
+  font-size: 1.5em;
   font-weight: bold;
 }
 
@@ -117,7 +119,7 @@ h3.dateAndTime:hover {
   margin-top: 8%;
   margin-right: 3%;
   padding-top: 2%;
-  font-size: 26px;
+  font-size: 1.6em;
   font-weight: bold;
 }
 
@@ -145,7 +147,7 @@ li.fullTime {
   border-radius: 40px;
   max-width: 100%;
   margin-left: 8%;
-  font-size: 20px;
+  font-size: 1.2em;
 }
 
 #search-text-input:hover {
@@ -163,7 +165,7 @@ li.fullTime {
   max-width: 100%;
   margin-left: 8%;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 1.2em;
 }
 
 .currentButton {
@@ -177,9 +179,9 @@ li.fullTime {
   border-radius: 20px;
   border: 2px solid rgb(117, 119, 213);
   box-shadow: 1px 1px 1px #5a77d5;
-  margin-left: 5px;
+  margin-left: 0.5%;
   max-width: 100%;
-  font-size: 15px;
+  font-size: 1em;
 }
 
 .currentButton:hover {
@@ -193,39 +195,51 @@ li.fullTime {
   background-color: #f4af48;
   border: 2px solid rgb(224, 126, 22);
   max-width: 100%;
-  margin-left: 5px;
+  margin-left: 0.5%;
   cursor: pointer;
 }
 
 input.inputButton {
   display: block;
+  outline: none;
   background-color: #ffffff;
   color: navy;
   text-align: center;
   position: static;
-  border-radius: 40px;
+  padding: 5px 15px 5px 15px;
+  border-radius: 20px;
   border: 2px solid rgb(117, 119, 213);
   box-shadow: 1px 1px 1px #5a77d5;
+  margin-left: 0.5%;
   max-width: 100%;
-  margin-left: 45%;
+  font-size: 1em;
 }
 
 input.inputButton:hover {
   display: block;
+  outline: none;
+  background-color: #ffffff;
+  color: navy;
   text-align: center;
   position: static;
-  border-radius: 40px;
-  background-color: #fefa8d;
-  border: 2px solid rgb(190, 224, 22);
+  padding: 5px 15px 5px 15px;
+  border-radius: 20px;
+  border: 2px solid rgb(117, 119, 213);
+  box-shadow: 1px 1px 1px #5a77d5;
+  margin-left: 0.5%;
   max-width: 100%;
-  margin-left: 45%;
+  font-size: 1em;
+
+  border-radius: 40px;
+  background-color: #e7fe8d;
+  border: 2px solid rgb(89, 224, 22);
   cursor: pointer;
 }
 
 .today {
   color: navy;
   text-align: left;
-  font-size: 34px;
+  font-size: 2.3em;
   margin-left: 30%;
   font-weight: bold;
   margin-top: 15px;
@@ -236,7 +250,7 @@ button.CorF {
   background-color: #717fcd;
   padding: 5px 10px 5px 10px;
   border-radius: 25px;
-  font-size: 15px;
+  font-size: 1em;
   margin-right: 10px;
   color: navy;
   display: block;
@@ -255,7 +269,7 @@ button.CorF:hover {
   color: #fff;
   border: 2px solid rgb(233, 255, 38);
   border-radius: 25px;
-  font-size: 15px;
+  font-size: 1em;
   margin-right: 10px;
   cursor: pointer;
   border: 2px solid rgb(217, 47, 255);
@@ -270,11 +284,10 @@ button.CorF:hover {
 
 .currentTemp {
   text-transform: capitalize;
-  font-size: 28px;
+  font-size: 1.5em;
   text-align: left;
-  margin-bottom: 15px;
+  margin-bottom: 5%;
   padding-bottom: 20px;
-  padding-left: 10px;
   color: navy;
 }
 
@@ -285,15 +298,15 @@ li.feelsLike {
 .CorFLetter {
   text-align: left;
   color: navy;
-  font-size: 24px;
-  padding-bottom: 20px;
+  font-size: 1.5em;
+  padding-bottom: 2%;
 }
 
 .currentDescription {
   text-align: right;
   align-items: center;
   padding-bottom: 10px;
-  font-size: 18px;
+  font-size: 1em;
   color: navy;
   max-width: 100%;
 }
@@ -301,7 +314,7 @@ li.feelsLike {
 span.currentHumidity {
   text-align: right;
   align-items: center;
-  font-size: 18px;
+  font-size: 1em;
   padding-bottom: 10px;
   color: navy;
   max-width: 100%;
@@ -311,7 +324,7 @@ span.currentWind {
   text-align: right;
   align-items: center;
   padding-bottom: 10px;
-  font-size: 18px;
+  font-size: 1em;
   color: navy;
   max-width: 100%;
 }
@@ -327,9 +340,7 @@ h3.current {
   border: 2px solid rgb(117, 119, 213);
   border-radius: 4px;
   padding: 10px 10px 10px 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  font-size: 20px;
+  font-size: 1.3em;
   font-weight: bold;
 }
 
@@ -343,9 +354,7 @@ h3.current:hover {
   background-color: #d2e3ff;
   border-radius: 20px;
   padding: 10px 10px 10px 10px;
-  margin-left: 5px;
-  margin-right: 5px;
-  font-size: 20px;
+  font-size: 1.3em;
   font-weight: bold;
 }
 
@@ -354,30 +363,31 @@ img {
   align-items: center;
 }
 
+.curWeatherIcon {
+  display: flex;
+  padding: 5% 5% 5% 5%;
+}
+
 #currentIcon {
   display: flex;
   align-items: center;
   text-align: center;
-  line-height: 50px;
   flex-wrap: wrap;
-  font-size: 38px;
-  border-radius: 120px;
-  padding: 20px 20px 20px 20px;
-  margin-right: 15%;
+  font-size: 2.5em;
+  padding: 5% 5% 5% 5%;
 }
 
 .weatherIcon {
   display: flex;
   align-items: center;
+  text-align: center;
   flex-wrap: wrap;
-  text-align: right;
-  font-size: 32px;
-  padding: 20px 20px 20px 20px;
+  font-size: 2.5em;
+  padding: 2% 2% 2% 2%;
   font-weight: bold;
 }
 
-.cityBox {
-  align-items: center;
+.citybox {
   text-align: center;
 }
 
@@ -392,10 +402,9 @@ h4.city {
   flex-wrap: wrap;
   position: static;
   overflow: hidden;
-  font-size: 26px;
+  font-size: 1.8em;
   color: navy;
-  padding: 18px 18px 18px 18px;
-  margin-right: 5%;
+  padding: 10% 10% 10% 10%;
   font-weight: bold;
 }
 
@@ -407,12 +416,10 @@ h4.city:hover {
   background-color: #d2e3ff;
   border-radius: 20px;
   flex-wrap: wrap;
-  position: static;
   overflow: hidden;
-  font-size: 26px;
+  font-size: 1.8em;
   color: navy;
-  padding: 18px 18px 18px 18px;
-  margin-right: 5%;
+  padding: 10% 10% 10% 10%;
   font-weight: bold;
 }
 
@@ -421,8 +428,13 @@ h4.city:hover {
 }
 
 #forecast {
-  margin-left: 1%;
-  margin-right: 1%;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.row {
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 .weatherRow {
@@ -430,53 +442,51 @@ h4.city:hover {
   border-radius: 4px;
   align-items: center;
   text-align: center;
-  padding: 10px 10px 10px 10px;
-  margin-left: 4%;
-  margin-right: 4%;
+  padding: 1% 1% 1% 1%;
+  margin-left: 3%;
+  margin-right: 3%;
 }
 
 .weatherRow:hover {
-  border-radius: 150px;
   align-items: center;
   text-align: center;
-  padding: 10px 10px 10px 10px;
-  margin-left: 4%;
-  margin-right: 4%;
+  padding: 1% 1% 1% 1%;
+  margin-left: 3%;
+  margin-right: 3%;
   background-color: #bfd6ff;
   border-radius: 20px;
 }
 
 .weather-forecast {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 11px;
-  margin-right: 11px;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  margin-left: 1%;
+  margin-right: 1%;
   text-align: center;
   align-items: center;
   color: rgb(37, 6, 59);
   border-radius: 4px;
-  padding: 10px 10px 10px 10px;
+  padding: 1% 0% 1% 0%;
   background-color: #bfd6ff;
   border: 2px solid rgb(117, 119, 213);
+  font-weight: bold;
 }
 
 .weather-forecast:hover {
-  margin-top: 2px;
-  margin-bottom: 2px;
-  margin-left: 11px;
-  margin-right: 11px;
+  margin-top: 1%;
+  margin-bottom: 1%;
   text-align: center;
   align-items: center;
   color: navy;
   background-color: #d2e3ff;
   border-radius: 20px;
-  padding: 10px 10px 10px 10px;
+  padding: 1% 0% 1% 0%;
   border: 2px solid rgb(97, 90, 194);
   font-weight: bold;
 }
 
 .weather-forecast-day {
-  font-size: 20px;
+  font-size: 1.3em;
   opacity: 0.7;
 }
 
@@ -489,7 +499,12 @@ h4.city:hover {
 }
 
 .weather-forecast-temperatures {
-  font-size: 20px;
+  font-size: 1.3em;
+}
+
+.forecastMain {
+  font-size: 1.2em;
+  opacity: 0.8;
 }
 
 .foot {

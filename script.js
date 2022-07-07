@@ -93,7 +93,7 @@ function displayWeatherCondition(response) {
   document.querySelector("span.currentHumidity").innerHTML =
     response.data.main.humidity + "%";
   document.querySelector("span.currentWind").innerHTML =
-    Math.round(response.data.wind.speed) + windUnits;
+    response.data.wind.speed + " " + windUnits;
   let iconData = response.data.weather[0].icon;
   iconElement.setAttribute(
     "src",
@@ -105,7 +105,7 @@ function displayWeatherCondition(response) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   return days[day];
 }
 // OTHER DAY FORECAST - Write code once and duplicate in JS
@@ -123,7 +123,7 @@ function displayForecast(response) {
               forecastDay.weather[0].icon
             }@2x.png"
             alt=""
-            width="42"
+            width="56"
           />
           <div class="weather-forecast-temperatures">
             <span class="weather-forecast-temp-max"> ${Math.round(
@@ -183,9 +183,9 @@ function convertUnits(event) {
       CorFLet.innerHTML = "°C";
       CorFBut.innerHTML = " [°C] or °F ";
       defaultTemp = "C";
-      windUnits = "kph";
-      windUnitDisplay = "kph";
-      windUnitDisplay.innerHTML = "kph";
+      windUnits = "km/h";
+      windUnitDisplay = "km/h";
+      windUnitDisplay.innerHTML = "km/h";
       break;
     case "C":
       units = "imperial";
