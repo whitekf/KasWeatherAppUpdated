@@ -105,9 +105,10 @@ function displayWeatherCondition(response) {
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return days[day];
 }
+
 // OTHER DAY FORECAST - Write code once and duplicate in JS
 function displayForecast(response) {
   let forecast = response.data.daily;
@@ -169,10 +170,6 @@ function searchCurrentCity(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayWeatherCondition);
 }
-
-// Calls display city function when user submits from search bar
-let formInput = document.querySelector("#search-form");
-formInput.addEventListener("submit", displaySearchedCity);
 
 function convertUnits(event) {
   let cityEntered = document.querySelector("h4.city");
@@ -248,3 +245,11 @@ tempToCorF.addEventListener("click", convertUnits);
 
 // when user clicks "current location" button
 curLocButton.addEventListener("click", getCurrentPosition);
+
+// Calls display city function when user submits from search bar
+let formInput = document.querySelector("#search-form");
+formInput.addEventListener("submit", displaySearchedCity);
+
+// Calls display city function when user submits from search bar
+let searchButton = document.querySelector("input.inputButton");
+searchButton.addEventListener("click", displaySearchedCity);

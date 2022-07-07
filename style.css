@@ -4,7 +4,8 @@ body {
 }
 
 .container {
-  background-color: d5e0ff;
+  background-color: #d5e0ff;
+  padding: 0% 10% 0% 10%;
 }
 
 .centerBox {
@@ -32,11 +33,11 @@ li {
   position: sticky;
   overflow: hidden;
   text-align: left;
-  font-size: 3.3em;
+  font-size: 3em;
   margin-left: 4%;
   padding-left: 5%;
   padding-top: 1%;
-  color: navy;
+  color: rgb(10, 10, 142);
   font-weight: bold;
 }
 
@@ -47,7 +48,7 @@ li {
   position: sticky;
   overflow: hidden;
   text-align: left;
-  font-size: 3.4em;
+  font-size: 3.1em;
   margin-left: 4%;
   padding-left: 5%;
   padding-top: 1%;
@@ -146,7 +147,6 @@ li.fullTime {
   padding: 8px 8px 8px 8px;
   border-radius: 40px;
   max-width: 100%;
-  margin-left: 8%;
   font-size: 1.2em;
 }
 
@@ -163,7 +163,6 @@ li.fullTime {
   padding: 8px 8px 8px 8px;
   border-radius: 40px;
   max-width: 100%;
-  margin-left: 8%;
   cursor: pointer;
   font-size: 1.2em;
 }
@@ -210,7 +209,6 @@ input.inputButton {
   border-radius: 20px;
   border: 2px solid rgb(117, 119, 213);
   box-shadow: 1px 1px 1px #5a77d5;
-  margin-left: 0.5%;
   max-width: 100%;
   font-size: 1em;
 }
@@ -223,10 +221,7 @@ input.inputButton:hover {
   text-align: center;
   position: static;
   padding: 5px 15px 5px 15px;
-  border-radius: 20px;
-  border: 2px solid rgb(117, 119, 213);
   box-shadow: 1px 1px 1px #5a77d5;
-  margin-left: 0.5%;
   max-width: 100%;
   font-size: 1em;
 
@@ -237,9 +232,9 @@ input.inputButton:hover {
 }
 
 .today {
-  color: navy;
+  color: rgb(27, 27, 176);
   text-align: left;
-  font-size: 2.3em;
+  font-size: 2.1em;
   margin-left: 30%;
   font-weight: bold;
   margin-top: 15px;
