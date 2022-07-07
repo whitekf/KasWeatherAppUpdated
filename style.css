@@ -483,6 +483,14 @@ h4.city:hover {
   opacity: 0.8;
 }
 
+.highLowHigh {
+  opacity: 0.9;
+}
+
+.highLowLow {
+  opacity: 0.6;
+}
+
 .foot {
   display: block;
   color: navy;

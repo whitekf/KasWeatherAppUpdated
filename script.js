@@ -85,9 +85,14 @@ if (dateTime) {
 function displayWeatherCondition(response) {
   city = response.data.name;
   fahrenTemp = response.data.main.temp;
+  // // unsure of correct API call for min and max of the day
+  // let highTemp = response.data.daily[0].main.temp_min;
+  // let lowTemp = response.current.daily[0].temp.max;
   let iconElement = document.querySelector("#currentIcon");
   document.querySelector("h4.city").innerHTML = city;
   document.querySelector("span.currentTemp").innerHTML = Math.round(fahrenTemp);
+  // document.querySelector("span.highLowHigh").innerHTML = Math.round(highTemp);
+  // document.querySelector("span.highLowLow").innerHTML = Math.round(lowTemp);
   document.querySelector("span.currentDescription").innerHTML =
     response.data.weather[0].description;
   document.querySelector("span.currentHumidity").innerHTML =
@@ -99,7 +104,6 @@ function displayWeatherCondition(response) {
     "src",
     `http://openweathermap.org/img/wn/${iconData}@2x.png`
   );
-
   // Testing to see if can update the background based on the weather description
   // let curBackground = document.querySelector("h3.current");
   // let newBackground = document.querySelector("h3.current");
@@ -108,7 +112,6 @@ function displayWeatherCondition(response) {
   //   newBackground.innerHTML = `<div class="clearSky">
   //     </div>`;
   // }
-
   getForecast(response.data.coord);
 }
 
