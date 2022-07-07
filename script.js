@@ -162,15 +162,6 @@ function displaySearchedCity(event) {
   }
 }
 
-// function used when user clicks "CorF" on default city...?
-function searchDefaultCity(position) {
-  let defaultCity = document.querySelector("h4.city");
-  city = defaultCity.value;
-  let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
-  axios.get(`${apiUrl}&appid=${apiKey}`).then(displayWeatherCondition);
-}
-
 // function used when user clicks "Current Location" button to show city/temp
 function searchCurrentCity(position) {
   let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
