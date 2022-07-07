@@ -33,7 +33,7 @@ li {
   position: sticky;
   overflow: hidden;
   text-align: left;
-  font-size: 3em;
+  font-size: 2.8em;
   padding-left: 5%;
   padding-top: 1%;
   color: rgb(10, 10, 142);
@@ -47,7 +47,7 @@ li {
   position: sticky;
   overflow: hidden;
   text-align: left;
-  font-size: 3.1em;
+  font-size: 2.9em;
   padding-left: 5%;
   padding-top: 1%;
   color: navy;
@@ -58,7 +58,7 @@ li {
 .rainbowContainer {
   background: #d5e0ff;
   width: 100%;
-  height: 1em;
+  height: 0.9em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -87,7 +87,7 @@ li {
     #61c2e4 350px,
     #61c2e4 400px
   );
-  background-size: 100% 1em;
+  background-size: 100% 0.9em;
   background-repeat: no-repeat;
 }
 
@@ -102,7 +102,7 @@ h3.dateAndTime {
   color: rgb(10, 10, 142);
   margin-top: 8%;
   padding-top: 4%;
-  font-size: 1.5em;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -118,7 +118,7 @@ h3.dateAndTime:hover {
   text-shadow: 1px 1px 1px #d6cdec;
   margin-top: 8%;
   padding-top: 2%;
-  font-size: 1.6em;
+  font-size: 1.3em;
   font-weight: bold;
 }
 
@@ -145,7 +145,7 @@ li.fullTime {
   padding: 8px 8px 8px 8px;
   border-radius: 40px;
   max-width: 100%;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 #search-text-input:hover {
@@ -162,7 +162,7 @@ li.fullTime {
   border-radius: 40px;
   max-width: 100%;
   cursor: pointer;
-  font-size: 1.2em;
+  font-size: 1em;
 }
 
 .currentButton {
@@ -231,7 +231,7 @@ input.inputButton:hover {
 .today {
   color: rgb(27, 27, 176);
   text-align: left;
-  font-size: 2.1em;
+  font-size: 1.75em;
   margin-left: 20%;
   font-weight: bold;
 }
@@ -273,10 +273,10 @@ button.CorF:hover {
 
 .currentTemp {
   text-transform: capitalize;
-  font-size: 1.5em;
+  font-size: 1.3em;
   text-align: left;
-  margin-bottom: 5%;
-  padding-bottom: 20px;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
   color: navy;
 }
 
@@ -287,14 +287,13 @@ li.feelsLike {
 .CorFLetter {
   text-align: left;
   color: navy;
-  font-size: 1.5em;
+  font-size: 1.3em;
   padding-bottom: 2%;
 }
 
 .currentDescription {
   text-align: right;
   align-items: center;
-  padding-bottom: 10px;
   font-size: 1em;
   color: navy;
   max-width: 100%;
@@ -304,7 +303,6 @@ span.currentHumidity {
   text-align: right;
   align-items: center;
   font-size: 1em;
-  padding-bottom: 10px;
   color: navy;
   max-width: 100%;
 }
@@ -312,7 +310,6 @@ span.currentHumidity {
 span.currentWind {
   text-align: right;
   align-items: center;
-  padding-bottom: 10px;
   font-size: 1em;
   color: navy;
   max-width: 100%;
@@ -328,8 +325,7 @@ h3.current {
   background-color: #bfd6ff;
   border: 2px solid rgb(117, 119, 213);
   border-radius: 4px;
-  padding: 10px 10px 10px 10px;
-  font-size: 1.3em;
+  font-size: 1.2em;
   font-weight: bold;
 }
 
@@ -342,8 +338,7 @@ h3.current:hover {
   position: relative;
   background-color: #d2e3ff;
   border-radius: 20px;
-  padding: 10px 10px 10px 10px;
-  font-size: 1.3em;
+  font-size: 1.25em;
   font-weight: bold;
 }
 
@@ -387,7 +382,7 @@ h4.city {
   flex-wrap: wrap;
   position: static;
   overflow: hidden;
-  font-size: 1.8em;
+  font-size: 1.6em;
   color: navy;
   padding: 10% 10% 10% 10%;
   font-weight: bold;
@@ -402,7 +397,7 @@ h4.city:hover {
   border-radius: 20px;
   flex-wrap: wrap;
   overflow: hidden;
-  font-size: 1.8em;
+  font-size: 1.65em;
   color: navy;
   padding: 10% 10% 10% 10%;
   font-weight: bold;
@@ -467,7 +462,7 @@ h4.city:hover {
 }
 
 .weather-forecast-day {
-  font-size: 1.3em;
+  font-size: 1.1em;
   opacity: 0.7;
 }
 
@@ -480,11 +475,11 @@ h4.city:hover {
 }
 
 .weather-forecast-temperatures {
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 .forecastMain {
-  font-size: 1.2em;
+  font-size: 1.1em;
   opacity: 0.8;
 }
 
@@ -495,5 +490,5 @@ h4.city:hover {
   align-items: center;
   margin-left: 8%;
   margin-right: 8%;
-  padding: 30px 20px 20px 20px;
+  padding: 20px 10px 20px 10px;
 }
