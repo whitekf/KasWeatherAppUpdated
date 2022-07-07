@@ -54,16 +54,6 @@ li {
   transition: ease-in-out;
 }
 
-button {
-  border: 2px solid rgb(117, 119, 213);
-  color: navy;
-}
-
-button:hover {
-  background-color: #e0b06b;
-  cursor: pointer;
-}
-
 .rainbowContainer {
   background: #ffffff;
   width: 100%;
@@ -214,7 +204,6 @@ input.inputButton {
   text-align: center;
   position: static;
   border-radius: 40px;
-  margin-top: 5px;
   border: 2px solid rgb(117, 119, 213);
   box-shadow: 1px 1px 1px #5a77d5;
   max-width: 100%;
@@ -229,7 +218,6 @@ input.inputButton:hover {
   background-color: #fefa8d;
   border: 2px solid rgb(190, 224, 22);
   max-width: 100%;
-  margin-top: 5px;
   margin-left: 45%;
   cursor: pointer;
 }

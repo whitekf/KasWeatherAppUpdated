@@ -25,11 +25,7 @@ let curLocButton = document.querySelector("button.currentButton");
 let tempToCorF = document.querySelector("button.CorF");
 let lastRequest = "D"; // D = Default, SC = SearchedCity, GCP = GetCurrentPosition
 
-// testing below Kassie
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-// Date and Time BELOW -----
+// Date and Time BELOW ----- - - - - - - - - - - - - - - - - - - - - - - - - -
 let dateTime = document.querySelector(".dateAndTime");
 let fullDate = document.querySelector("#fullDate");
 let fullDay = document.querySelector("#fullDay");
@@ -87,44 +83,30 @@ function displayDate() {
 if (dateTime) {
   dateTime.addEventListener("load", displayDate());
 }
-// Date and Time ABOVE -----
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - -
+// Date and Time ABOVE ----- - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // display current weather details
 function displayDefaultWeatherCondition(response) {
   lastRequest = "D";
   console.log("1 - dispalyCurWeatherCondition ARGHAAADHFHREJHGKHSDFKJSEA");
-
   let defaultCity = document.querySelector("h4.city");
   city = defaultCity.value;
   fahrenTemp = response.data.main.temp;
-  // fahrenTempHigh = response.data.main.temp.max;
-  // fahrenTempLow = response.data.main.temp.min;
-  // console.log(fahrenTempHigh + " " + fahrenTempLow);
-
   let iconElement = document.querySelector("#currentIcon");
   document.querySelector("h4.city").innerHTML = city;
   document.querySelector("span.currentTemp").innerHTML = Math.round(fahrenTemp);
-  //document.querySelector("span.CorFLetter").innerHTML = "°F";
-  // document.querySelector(".CorF").innerHTML = " °C or [°F] ";
   document.querySelector("span.currentDescription").innerHTML =
     response.data.weather[0].description;
   document.querySelector("span.currentHumidity").innerHTML =
     response.data.main.humidity + "%";
   document.querySelector("span.currentWind").innerHTML =
     Math.round(response.data.wind.speed) + "mph";
-
   let iconData = response.data.weather[0].icon;
-
   iconElement.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${iconData}@2x.png`
   );
   getForecast(response.data.coord);
-
-  // // when user clicks "C or F" button
-  tempToCorF.addEventListener("click", convertUnits);
 }
 
 // display current weather details
@@ -133,14 +115,9 @@ function displayCurWeatherCondition(response) {
   console.log("1 - dispalyCurWeatherCondition ARGHAAADHFHREJHGKHSDFKJSEA");
   city = response.data.name;
   fahrenTemp = response.data.main.temp;
-  // fahrenTempHigh = response.data.main.temp.max;
-  // fahrenTempLow = response.data.main.temp.min;
-  // console.log(fahrenTempHigh + " " + fahrenTempLow);
   let iconElement = document.querySelector("#currentIcon");
   document.querySelector("h4.city").innerHTML = city;
   document.querySelector("span.currentTemp").innerHTML = Math.round(fahrenTemp);
-  //document.querySelector("span.CorFLetter").innerHTML = "°F";
-  // document.querySelector(".CorF").innerHTML = " °C or [°F] ";
   document.querySelector("span.currentDescription").innerHTML =
     response.data.weather[0].description;
   document.querySelector("span.currentHumidity").innerHTML =
@@ -153,8 +130,6 @@ function displayCurWeatherCondition(response) {
     `http://openweathermap.org/img/wn/${iconData}@2x.png`
   );
   getForecast(response.data.coord);
-  // // when user clicks "C or F" button
-  tempToCorF.addEventListener("click", convertUnits);
 }
 
 function formatDay(timestamp) {
@@ -163,14 +138,17 @@ function formatDay(timestamp) {
   let days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
   return days[day];
 }
-
 // OTHER DAY FORECAST - Write code once and duplicate in JS
 function displayForecast(response) {
   console.log("3 - displayForecast KASSSIEeE - ARGHAAADHFHREJHGKHSDFKJSEA");
+  // let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
+  // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}`;
+  // axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
   let forecast = response.data.daily;
   // console.log("forecast is " + forecast);
   // let tempToCorF = document.querySelector("button.CorF");
   // tempToCorF.addEventListener("click", convertUnits);
+  // SHOULD THIS BE PULLING FROM WHATEVER CITY IS LISTED IN THE CITY FIELD??? HOW DOES THAT WORK WITH PARAMETER?
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row weatherRow">`;
   forecast.forEach(function (forecastDay, index) {
@@ -224,13 +202,14 @@ function displayForecast(response) {
 // Update city based on search input BELOW ------
 function displaySearchedCity(event) {
   event.preventDefault();
-  lastRequest = "SC";
+
   // uses the city name that the user enters
   let searchIn = document.querySelector("#search-text-input");
   let cityInput = document.querySelector("h4.city");
   cityInput.innerHTML = searchIn.value;
   // make an API call to OpenWeather API & once response rcvd, display city name & temp
   if (searchIn.value) {
+    lastRequest = "SC";
     let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
     // let city = document.querySelector("h4.city").value;
     let city = searchIn.value;
@@ -239,9 +218,6 @@ function displaySearchedCity(event) {
   } else {
     cityInput.innerHTML = "Please enter a city.";
   }
-
-  // // If user selects the C or F button, calls convertUnits function
-  // tempToCorF.addEventListener("click", convertUnitsDSC);
 }
 
 // function used when user clicks "CorF" on default city...?
@@ -259,14 +235,11 @@ function searchDefaultCity(position) {
 // function used when user clicks "Current Location" button to show city/temp
 function searchCurrentCity(position) {
   lastRequest = "GCP";
-  // KASSIE COME BACK NEED TO FIGURE OUT WHY THIS ISN'T REMOVING TEXT IN SEARCH FIELD
-  let searchIn = document.querySelector("#search-text-input");
-  searchIn.value.innerHTML = "Search for a city";
+
   let apiKey = "15ed5d92f7b4157fdab57b1053c46052";
   // let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=${units}`;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&appid=${apiKey}&units=${units}`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(displayCurWeatherCondition);
-  // axios.get(`${apiUrl}&appid=${apiKey}`).then(displayOthWeatherCondition);
 }
 
 // Calls display city function when user submits from search bar
@@ -436,7 +409,7 @@ function showPosition(position) {
   navigator.geolocation.getCurrentPosition(searchCurrentCity);
   //  curLocButton.addEventListener("click", getCurrentPosition);
   // If user selects the C or F button, calls convertUnits function
-  tempToCorF.addEventListener("click", convertUnitsGCP);
+  // tempToCorF.addEventListener("click", convertUnitsGCP);
 }
 
 function getForecast(coordinates) {
@@ -450,9 +423,21 @@ function getForecast(coordinates) {
   //axios.get(apiUrl).then(otherDaysInRows);
 }
 
+function clearForm(searchedItem) {
+  if (searchedItem.value != null) {
+    searchedItem.value = "";
+  }
+}
+
 // calls showPosition
 function getCurrentPosition() {
   lastRequest = "GCP";
+
+  // KASSIE COME BACK NEED TO FIGURE OUT WHY THIS ISN'T REMOVING TEXT IN SEARCH FIELD
+  let searchIn = document.querySelector("#search-text-input");
+  let searchInForm = document.querySelector("#search-form");
+  clearForm(searchIn);
+  searchIn.innerHTML = "Search for a city";
   navigator.geolocation.getCurrentPosition(showPosition);
   // // If user selects the C or F button, calls convertUnits function
   // tempToCorF.addEventListener("click", convertUnitsGCP);
