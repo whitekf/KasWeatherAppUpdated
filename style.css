@@ -209,7 +209,6 @@ li.fullTime {
   border-radius: 50px;
   border: 2px solid rgb(117, 119, 213);
   box-shadow: 1px 1px 1px #5a77d5;
-  margin-left: 0.5%;
   max-width: 100%;
   font-size: 1em;
 }
@@ -225,8 +224,8 @@ li.fullTime {
   background-color: #f4af48;
   border: 2px solid rgb(224, 126, 22);
   max-width: 100%;
-  margin-left: 0.5%;
   cursor: pointer;
+  font-size: 1em;
 }
 
 input.inputButton {
@@ -284,6 +283,7 @@ button.CorF {
   border: 2px solid rgb(117, 119, 213);
   box-shadow: 1px 1px 1px #5a77d5;
   max-width: 100%;
+  font-size: 1em;
 }
 
 button.CorF:hover {
@@ -302,6 +302,7 @@ button.CorF:hover {
   text-align: center;
   position: static;
   max-width: 100%;
+  font-size: 1em;
 }
 
 .currentTemp {
