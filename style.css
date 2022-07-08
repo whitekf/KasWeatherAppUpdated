@@ -1,23 +1,11 @@
 body {
   background-color: #d5e0ff;
-  background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
-  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
   background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   font-family: Helvetica, "Consolas", "Courier New", monospace;
 }
 
 .container {
   background-color: #d5e0ff;
-  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
-  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
-  background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
-  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
-  background-image: linear-gradient(
-    to top,
-    #f3e7e9 0%,
-    #e3eeff 99%,
-    #e3eeff 100%
-  );
   background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
   background-image: linear-gradient(
     -225deg,
@@ -204,6 +192,8 @@ li.fullTime {
   display: block;
   outline: none;
   background-color: #4c53d4;
+  background-image: linear-gradient(to top, #20238a 0%, #2d53a4 100%);
+  max-width: 100%;
   color: #fff;
   text-align: center;
   position: static;
@@ -234,6 +224,8 @@ input.inputButton {
   display: block;
   outline: none;
   background-color: #4c53d4;
+  background-image: linear-gradient(to top, #20238a 0%, #2d53a4 100%);
+  max-width: 100%;
   color: #fff;
   text-align: center;
   position: static;
@@ -248,8 +240,7 @@ input.inputButton {
 input.inputButton:hover {
   display: block;
   outline: none;
-  background-color: #ffffff;
-  color: navy;
+  color: #fff;
   text-align: center;
   position: static;
   padding: 5px 15px 5px 15px;
@@ -272,7 +263,6 @@ input.inputButton:hover {
 
 button.CorF {
   text-align: center;
-  background-color: #717fcd;
   padding: 5px 10px 5px 10px;
   border-radius: 35px;
   font-size: 1em;
@@ -280,10 +270,7 @@ button.CorF {
   display: block;
   outline: none;
   background-color: #4c53d4;
-  text-align: center;
-  position: static;
-  border: 1px solid #282ea8;
-  box-shadow: 1px 1px 1px #5a77d5;
+  background-image: linear-gradient(to top, #20238a 0%, #2d53a4 100%);
   max-width: 100%;
   font-size: 1em;
 }
