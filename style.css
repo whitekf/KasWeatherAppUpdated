@@ -135,7 +135,7 @@ h3.dateAndTime {
   color: rgb(10, 10, 142);
   margin-top: 8%;
   padding-top: 4%;
-  font-size: 1.2em;
+  font-size: 1.3em;
   font-weight: bold;
 }
 
@@ -150,7 +150,7 @@ h3.dateAndTime:hover {
   overflow: hidden;
   text-shadow: 1px 1px 1px #d6cdec;
   margin-top: 8%;
-  padding-top: 2%;
+  padding-top: 4%;
   font-size: 1.3em;
   font-weight: bold;
 }
@@ -203,13 +203,13 @@ li.fullTime {
 .currentButton {
   display: block;
   outline: none;
-  background-color: #ff9d47;
-  color: navy;
+  background-color: #4c53d4;
+  color: #fff;
   text-align: center;
   position: static;
   padding: 5px 5px 5px 5px;
   border-radius: 50px;
-  border: 2px solid rgb(117, 119, 213);
+  border: 1px solid #282ea8;
   box-shadow: 1px 1px 1px #5a77d5;
   max-width: 100%;
   font-size: 1em;
@@ -233,13 +233,13 @@ li.fullTime {
 input.inputButton {
   display: block;
   outline: none;
-  background-color: #bcff6a;
-  color: navy;
+  background-color: #4c53d4;
+  color: #fff;
   text-align: center;
   position: static;
   padding: 5px 15px 5px 15px;
   border-radius: 20px;
-  border: 2px solid rgb(117, 119, 213);
+  border: 1px solid #282ea8;
   box-shadow: 1px 1px 1px #5a77d5;
   max-width: 100%;
   font-size: 1em;
@@ -276,13 +276,13 @@ button.CorF {
   padding: 5px 10px 5px 10px;
   border-radius: 35px;
   font-size: 1em;
-  color: navy;
+  color: #fff;
   display: block;
   outline: none;
-  background-color: #ff87f7;
+  background-color: #4c53d4;
   text-align: center;
   position: static;
-  border: 2px solid rgb(117, 119, 213);
+  border: 1px solid #282ea8;
   box-shadow: 1px 1px 1px #5a77d5;
   max-width: 100%;
   font-size: 1em;
