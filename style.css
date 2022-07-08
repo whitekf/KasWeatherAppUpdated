@@ -173,7 +173,7 @@ li.fullTime {
   text-align: center;
   position: relative;
   outline: none;
-  background-color: #dfeaff;
+  background-color: #ffffff;
   border: 2px solid rgb(117, 119, 213);
   padding: 5px 8px 5px 8px;
   border-radius: 40px;
@@ -190,7 +190,7 @@ li.fullTime {
   text-align: center;
   position: relative;
   outline: none;
-  background-color: #ecf0fe;
+  background-color: #ffffff;
   border: 2px solid rgb(117, 119, 213);
   padding: 8px 8px 8px 8px;
   border-radius: 40px;
@@ -203,7 +203,7 @@ li.fullTime {
 .currentButton {
   display: block;
   outline: none;
-  background-color: #ffffff;
+  background-color: #ff9d47;
   color: navy;
   text-align: center;
   position: static;
@@ -233,7 +233,7 @@ li.fullTime {
 input.inputButton {
   display: block;
   outline: none;
-  background-color: #ffffff;
+  background-color: #bcff6a;
   color: navy;
   text-align: center;
   position: static;
@@ -279,7 +279,7 @@ button.CorF {
   color: navy;
   display: block;
   outline: none;
-  background-color: #ffffff;
+  background-color: #ff87f7;
   text-align: center;
   position: static;
   border: 2px solid rgb(117, 119, 213);
