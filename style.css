@@ -175,10 +175,11 @@ li.fullTime {
   outline: none;
   background-color: #dfeaff;
   border: 2px solid rgb(117, 119, 213);
-  padding: 8px 8px 8px 8px;
+  padding: 5px 8px 5px 8px;
   border-radius: 40px;
   max-width: 100%;
   font-size: 1em;
+  box-shadow: 1px 1px 1px #5a77d5;
 }
 
 #search-text-input:hover {
@@ -196,6 +197,7 @@ li.fullTime {
   max-width: 100%;
   cursor: pointer;
   font-size: 1em;
+  box-shadow: 1px 1px 1px #5a77d5;
 }
 
 .currentButton {
