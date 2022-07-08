@@ -173,7 +173,7 @@ li.fullTime {
   text-align: center;
   position: static;
   padding: 5px 5px 5px 5px;
-  border-radius: 20px;
+  border-radius: 50px;
   border: 2px solid rgb(117, 119, 213);
   box-shadow: 1px 1px 1px #5a77d5;
   margin-left: 0.5%;
@@ -188,7 +188,7 @@ li.fullTime {
   color: #fff;
   position: static;
   padding: 5px 5px 5px 5px;
-  border-radius: 20px;
+  border-radius: 50px;
   background-color: #f4af48;
   border: 2px solid rgb(224, 126, 22);
   max-width: 100%;
