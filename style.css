@@ -457,6 +457,7 @@ h4.city:hover {
   align-items: center;
   text-align: center;
   padding: 1% 1% 1% 1%;
+  border: 1px solid rgb(117, 119, 213);
 }
 
 .weatherRow:hover {
@@ -465,6 +466,7 @@ h4.city:hover {
   padding: 1% 1% 1% 1%;
   background-color: #d5e0ff;
   border-radius: 20px;
+  border: 1px solid rgb(117, 119, 213);
 }
 
 .weather-forecast {
