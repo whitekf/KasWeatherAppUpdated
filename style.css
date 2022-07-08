@@ -273,7 +273,7 @@ button.CorF {
   text-align: center;
   background-color: #717fcd;
   padding: 5px 10px 5px 10px;
-  border-radius: 25px;
+  border-radius: 35px;
   font-size: 1em;
   color: navy;
   display: block;
@@ -291,7 +291,7 @@ button.CorF:hover {
   background-color: #90d214;
   color: #fff;
   border: 2px solid rgb(233, 255, 38);
-  border-radius: 25px;
+  border-radius: 35px;
   font-size: 1em;
   cursor: pointer;
   border: 2px solid rgb(217, 47, 255);
