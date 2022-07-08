@@ -1,10 +1,37 @@
 body {
   background-color: #d5e0ff;
+  background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
   font-family: Helvetica, "Consolas", "Courier New", monospace;
 }
 
 .container {
   background-color: #d5e0ff;
+  background-image: linear-gradient(to top, #accbee 0%, #e7f0fd 100%);
+  background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
+  background-image: linear-gradient(120deg, #89f7fe 0%, #66a6ff 100%);
+  background-image: linear-gradient(-20deg, #b721ff 0%, #21d4fd 100%);
+  background-image: linear-gradient(
+    to top,
+    #f3e7e9 0%,
+    #e3eeff 99%,
+    #e3eeff 100%
+  );
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  background-image: linear-gradient(
+    -225deg,
+    #5d9fff 0%,
+    #b8dcff 48%,
+    #6bbbff 100%
+  );
+  background-image: linear-gradient(-225deg, #7de2fc 0%, #b9b6e5 100%);
+  background-image: linear-gradient(
+    -225deg,
+    #558ee4 0%,
+    #5085ba 48%,
+    #7085d7 100%
+  );
   padding: 0% 10% 0% 10%;
 }
 
@@ -17,6 +44,12 @@ body {
   display: block;
   margin-top: 1%;
   margin-bottom: 1%;
+  background-image: linear-gradient(
+    -225deg,
+    #5d9fff 0%,
+    #b8dcff 48%,
+    #6bbbff 100%
+  );
 }
 
 li {
